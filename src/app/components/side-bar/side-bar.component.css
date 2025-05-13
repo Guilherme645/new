@@ -1,0 +1,172 @@
+.sidebar-container {
+  width: 88px;
+  height: 800px;
+  padding-top: 80px;
+  padding-bottom: 32px;
+  background: #15181F;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+margin-top: -78px;
+}
+
+.logo-container {
+  width: 52px;
+  height: 52px;
+  padding: 4px;
+  background: #F9CC13;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-lines {
+  flex: 1 1 0;
+  position: relative;
+  height: 100%;
+}
+
+.line1, .line2, .line3, .line4, .line5 {
+  position: absolute;
+  background: black;
+}
+
+.line1 { width: 14.56px; height: 28.44px; left: 22.83px; top: 0px; }
+.line2 { width: 14.22px; height: 28.45px; left: 6.73px; top: 0.01px; }
+.line3 { width: 4.30px; height: 34.49px; left: 19.76px; top: 9.51px; }
+.line4 { width: 11.51px; height: 15.70px; left: 25.07px; top: 21.99px; }
+.line5 { width: 11.26px; height: 15.68px; left: 7.50px; top: 22px; }
+
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  
+}
+
+.menu-item {
+  height: 56px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+/* option_navigation */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 8px 0px;
+gap: 2px;
+isolation: isolate;
+
+width: 88px;
+height: 56px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+
+.menu-item.active {
+  background: #535862;
+  border-left: 2px solid #F5F5F5;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.inicio-icon div {
+  width: 16px;
+  height: 16.34px;
+  left: 4px;
+  top: 3.66px;
+  position: absolute;
+  background: #D6DBF7;
+  outline: 1.4px solid #314CD9;
+  outline-offset: -0.7px;
+}
+
+.projetos-icon div,
+.colecoes-icon div,
+.usuarios-icon div,
+.notificacoes-icon div,
+.sair-icon div {
+  position: absolute;
+  outline: 1.4px solid #D5D7DA;
+  outline-offset: -0.7px;
+}
+
+.projetos-icon div { width: 18.03px; height: 13px; left: 2.99px; top: 6px; }
+.colecoes-icon div { width: 18px; height: 18px; left: 3px; top: 3px; }
+.usuarios-icon div { width: 18px; height: 15px; left: 3px; top: 5px; }
+.notificacoes-icon div { width: 16px; height: 18px; left: 4px; top: 3px; }
+.sair-icon div { width: 16px; height: 16px; left: 4px; top: 4px; }
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: center;
+  color: #F5F5F5;
+}
+
+.menu-item.active .label {
+  font-weight: 500;
+}
+
+.notificacoes-item {
+  position: relative;
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  background: #F5F5F5;
+  border-radius: 9999px;
+  position: absolute;
+  top: 15px;
+  left: 48px;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.user-avatar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-initials {
+  width: 40px;
+  height: 40px;
+  background: #FDEBA1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #957A0B;
+  font-size: 14px;
+  font-weight: 600;
+}

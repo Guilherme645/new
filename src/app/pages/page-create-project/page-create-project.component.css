@@ -1,0 +1,39 @@
+.sidebar{
+    /* sidebar_navigation */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 32px 0px;
+gap: 133px;
+
+position: absolute;
+width: 88px;
+height: 100%px;
+left: 0px;
+top: 0px;
+
+background: #15181F;
+
+}
+
+.create{
+    /* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+position: absolute;
+width: 432px;
+height: 506px;
+left: calc(50% - 432px/2);
+top: calc(50% - 506px/2);
+
+
+}

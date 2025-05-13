@@ -1,0 +1,60 @@
+.cabecalho-colecoes {
+  width: 1375px;
+  height: 120px;
+  padding: 32px 48px 40px -12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--gray-700, #414651);
+  margin: 0;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 500px;
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.botao-ghost {
+  background: transparent;
+  color: var(--gray-600, #535862);
+  border: none;
+}
+
+.botao-solid {
+  background: var(--primary-pure, #F9CC13);
+  color: var(--gray-900, #07080A);
+  border: 1px solid var(--primary-600, #C7A30F);
+}
+
+.icone-mais {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 0;
+}
+
+.pi.pi-search {
+  font-size: 14px;
+  color: var(--gray-600, #535862);
+}
