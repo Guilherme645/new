@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
-  padding: 19px;
+    width: 400px;
+      padding: 19px;
       margin-left: -20px;
 }
 

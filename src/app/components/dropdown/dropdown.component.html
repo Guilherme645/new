@@ -1,0 +1,88 @@
+<div class="relative inline-flex">
+  <!-- BOTÃO FILTRAR -->
+  <button
+    (click)="toggleDropdown()"
+    type="button"
+    [attr.aria-expanded]="isOpen"
+    aria-haspopup="true"
+    style="
+      width: 100%;
+      height: 100%;
+      padding: 4px 8px;
+      background: var(--Gray-100, #FDFDFD);
+      box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.10);
+      overflow: hidden;
+      border-radius: 4px;
+      outline: 0.80px solid var(--Gray-300, #E9EAEB);
+      outline-offset: -0.80px;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      display: inline-flex;
+      cursor: pointer;
+    "
+  >
+    <!-- Ícone esquerdo (filtro) -->
+    <div style="width: 16px; height: 16px; position: relative; overflow: hidden">
+      <div style="left: 2.67px; top: 2.67px; position: absolute;">
+       <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.3332 1.73336C11.3332 1.35999 11.3329 1.17317 11.2603 1.03056C11.1963 0.905117 11.0947 0.803204 10.9693 0.739288C10.8267 0.666626 10.6396 0.666626 10.2662 0.666626H1.73291C1.35954 0.666626 1.17304 0.666626 1.03044 0.739288C0.904995 0.803204 0.803082 0.905117 0.739166 1.03056C0.666504 1.17317 0.666504 1.35999 0.666504 1.73336V2.22486C0.666504 2.38792 0.666504 2.46952 0.684924 2.54624C0.701255 2.61426 0.728259 2.67924 0.764811 2.73889C0.806026 2.80615 0.863776 2.8639 0.979004 2.97913L4.35416 6.35429C4.46946 6.46958 4.5268 6.52692 4.56802 6.59419C4.60458 6.65384 4.63194 6.71904 4.64827 6.78707C4.66651 6.86301 4.66651 6.94364 4.6665 7.1034V10.274C4.6665 10.8454 4.6665 11.1314 4.78687 11.3034C4.89197 11.4537 5.05411 11.5539 5.23551 11.5807C5.44326 11.6114 5.69898 11.4838 6.21012 11.2282L6.74346 10.9615C6.9575 10.8545 7.06426 10.8008 7.14245 10.721C7.21159 10.6504 7.26449 10.5656 7.29671 10.4722C7.33315 10.3666 7.33317 10.2466 7.33317 10.0073V7.10836C7.33317 6.9453 7.33317 6.86379 7.35159 6.78707C7.36792 6.71904 7.39493 6.65384 7.43148 6.59419C7.47243 6.52737 7.52961 6.47018 7.64338 6.35642L7.64567 6.35429L11.0208 2.97913C11.1361 2.86382 11.1935 2.80617 11.2347 2.73889C11.2712 2.67924 11.2986 2.61427 11.3149 2.54624C11.3332 2.4703 11.3332 2.38958 11.3332 2.22983V1.73336Z" stroke="#535862" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </div>
+    </div>
+
+    <!-- Texto -->
+    <div
+      style="
+        color: var(--Gray-700, #414651);
+        font-size: 12px;
+        font-family: Inter;
+        font-weight: 600;
+        line-height: 16.80px;
+        word-wrap: break-word;
+      "
+    >
+      Filtrar
+    </div>
+
+    <!-- Ícone direito (seta para baixo) -->
+    <div style="width: 16px; height: 16px; position: relative; overflow: hidden">
+      <div style="left: 6px; top: 6.67px; position: absolute;">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.66683 1.66663L4.00016 4.33329L1.3335 1.66663" stroke="#535862" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </button>
+
+  <!-- DROPDOWN -->
+  <div
+    *ngIf="isOpen"
+    class="absolute z-10 mt-11 min-w-60 bg-white shadow-md rounded-lg transition-opacity duration-300 opacity-100"
+    role="menu"
+    aria-orientation="vertical"
+  >
+    <div
+      style="width: 100%; background: white; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); overflow: hidden; border-radius: 4px; outline: 1px solid #F5F5F5; outline-offset: -1px; display: flex; flex-direction: column; gap: 4px; padding: 8px"
+    >
+      <div
+        *ngFor="let item of checkboxes"
+        class="flex items-center"
+      >
+        <input
+          type="checkbox"
+          [id]="item.id"
+          [(ngModel)]="item.checked"
+          class="shrink-0 mt-0.5 border-gray-700 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+        />
+        <label
+          [for]="item.id"
+          class="text-sm text-gray-700 ms-3 dark:text-neutral-400"
+        >
+          {{ item.label }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

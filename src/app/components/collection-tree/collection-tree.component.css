@@ -1,0 +1,114 @@
+.subcollections-container {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.subcollections-table th.nome {
+  padding-left: 77px; /* ajuste o valor conforme necessário */
+}
+.subcollections-table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Usar table-layout: fixed para forçar larguras exatas */
+}
+
+.subcollections-table th,
+.subcollections-table td {
+  text-align: left;
+  padding: 12px 8px; /* Equalizar com o padding do componente pai */
+  font-size: 12px;
+  color: #606770;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.subcollections-table td {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Ajuste de largura das colunas para corresponder ao componente pai */
+.subcollections-table th.menu-lateral,
+.subcollections-table td.menu-lateral {
+  width: 60px;
+  text-align: center;
+}
+
+.subcollections-table th.nome,
+.subcollections-table td.nome {
+  width: 444px; /* Corresponde à primeira .coluna.descricao do pai */
+}
+
+.subcollections-table th.descricao,
+.subcollections-table td.descricao {
+  width: 444px; /* Corresponde à segunda .coluna.descricao do pai */
+}
+
+.subcollections-table th.indexacao,
+.subcollections-table td.indexacao {
+  width: 385px; /* Corresponde à .coluna.indexacao do pai */
+}
+
+.subcollections-table th.icones-finais,
+.subcollections-table td.icones-finais {
+  width: 60px;
+  text-align: center;
+}
+
+.nome .nome-colecao {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+      margin-left: 69px;
+}
+
+.prefixo {
+  color: #999;
+}
+
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+      margin-left: -61px;
+}
+
+.add-btn {
+  border: none;
+  background: #f4f4f4;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.indexacao-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: -60px;
+}
+
+.percent {
+  font-size: 14px;
+  color: #333;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.acoes svg {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  stroke: #606770;
+}

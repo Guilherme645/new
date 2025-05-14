@@ -5,5 +5,13 @@
   <app-header-page></app-header-page>
 </div>
 <div class="tabela">
-  <app-tabela></app-tabela>
+  <app-tabela
+  [data]="projects"
+  [type]="'project'"
+  [totalItems]="projects.length"
+  [totalPages]="1"
+  [currentPage]="1"
+  >
+
+  </app-tabela>
 </div>

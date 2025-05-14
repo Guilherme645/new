@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Coleção A",
+    "description": "Descrição da coleção A",
+    "progressState": "pause",
+    "progressPercent": 40
+  },
+  {
+    "name": "Coleção B",
+    "description": "Descrição da coleção B",
+    "progressState": "complete",
+    "progressPercent": 14
+  },
+   {
+    "name": "Coleção C",
+    "description": "Descrição da coleção C",
+    "progressState": "error",
+    "progressPercent": 8
+  },
+  {
+    "name": "Coleção D",
+    "description": "Descrição da coleção D",
+    "progressState": "default",
+    "progressPercent": 50
+  },
+    {
+    "name": "Coleção E",
+    "description": "Descrição da coleção E",
+    "progressState": "active",
+    "progressPercent": 80
+  },
+  {
+    "name": "Coleção F",
+    "description": "Descrição da coleção F",
+    "progressState": "complete",
+    "progressPercent": 1
+  }
+]

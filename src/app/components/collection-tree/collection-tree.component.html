@@ -1,0 +1,37 @@
+<div class="subcollections-container">
+  <table class="subcollections-table">
+    <!-- Cabeçalhos -->
+    <thead>
+      <tr>
+        <th class="nome">NOME DA COLEÇÃO</th>
+        <th class="descricao">DESCRIÇÃO DA COLEÇÃO</th>
+        <th class="indexacao">
+          <div class="index-header">
+            INDEXAÇÃO DA COLEÇÃO
+            <button class="add-btn">+</button>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <!-- Corpo -->
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td class="nome">
+          <span class="nome-colecao">
+            <span class="prefixo">(Coleção)</span>
+            <strong>{{ item.name }}</strong>
+          </span>
+        </td>
+        <td class="descricao">
+          {{ item.description }}
+        </td>
+        <td class="indexacao">
+          <div class="indexacao-content">
+            <app-progress-bar [state]="item.progressState" [percent]="item.progressPercent"></app-progress-bar>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

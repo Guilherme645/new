@@ -22,30 +22,42 @@
   margin-left: 500px;
 }
 
+
 .botao {
   display: flex;
   align-items: center;
   gap: 8px;
   height: 48px;
-  padding: 0 16px;
+  padding: 12px;
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.2s ease-in-out;
 }
 
 .botao-ghost {
+  width: 148px;
   background: transparent;
   color: var(--gray-600, #535862);
   border: none;
 }
 
+.botao-ghost:hover {
+  background: #F5F5F5;
+}
+
 .botao-solid {
+  width: 135px;
   background: var(--primary-pure, #F9CC13);
-  color: var(--gray-900, #07080A);
-  border: 1px solid var(--primary-600, #C7A30F);
+  border: 0.8px solid #957A0B;
+}
+
+.botao-solid:hover {
+  background: #C7A30F;
+  border: 0.8px solid #957A0B;
 }
 
 .icone-mais {
@@ -57,4 +69,53 @@
 .pi.pi-search {
   font-size: 14px;
   color: var(--gray-600, #535862);
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 435px;
+  height: 48px;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 340px;
+  height: 48px;
+  padding: 0 12px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 2px rgba(49, 76, 217, 0.2);
+}
+
+.search-field i {
+  font-size: 14px;
+  color: #535862;
+}
+
+.search-field input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.botao-cancelar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  width: 87px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #535862;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }

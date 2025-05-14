@@ -5,12 +5,12 @@ import { ButtonModule } from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { TabelaComponent } from './components/side-bar/tabela/tabela.component';
+import { TabelaComponent } from './components/tabela/tabela.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageCreateProjectComponent } from './pages/page-create-project/page-create-project.component';
 import { CreateNewProjectComponent } from './components/create-new-project/create-new-project.component';
 import { RouterOutlet } from '@angular/router';
@@ -19,6 +19,9 @@ import { CreateNewColectionComponent } from './components/create-new-colection/c
 import { ColectionPageComponent } from './pages/colection-page/colection-page.component';
 import { PageCreateColectionComponent } from './pages/page-create-colection/page-create-colection.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { MenuModule } from 'primeng/menu';
+import { CollectionTreeComponent } from './components/collection-tree/collection-tree.component';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderColectionComponent,
     CreateNewColectionComponent,
     ColectionPageComponent,
-    PageCreateColectionComponent
+    PageCreateColectionComponent,
+    DropdownComponent,
+  CollectionTreeComponent
 
     
   ],
@@ -45,7 +50,9 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownModule,
     FormsModule,
     RouterOutlet,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

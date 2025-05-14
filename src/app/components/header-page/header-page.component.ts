@@ -6,11 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
+  searchMode = false;
+  searchText = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  activateSearch() {
+    this.searchMode = true;
   }
 
-}
+  cancelSearch() {
+    this.searchMode = false;
+    this.searchText = '';
+  }
 
+  clearSearch() {
+    this.searchText = '';
+  }
+}

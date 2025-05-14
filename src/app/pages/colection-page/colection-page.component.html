@@ -5,5 +5,11 @@
 <app-header-colection></app-header-colection>
 </div>
 <div class="tabela">
-  <app-tabela></app-tabela>
+  <app-tabela
+    [data]="collections"
+    [type]="'collection'"
+    [totalItems]="collections.length"
+    [totalPages]="1"
+    [currentPage]="1"
+  ></app-tabela>
 </div>

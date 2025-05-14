@@ -2,14 +2,53 @@
   <h1 class="titulo">Gerenciar Projetos</h1>
 
   <div class="acoes">
-    <button class="botao botao-ghost" aria-label="Buscar projeto">
-      <i class="pi pi-search"></i>
-      <span>Buscar projeto</span>
-    </button>
+    <!-- Botões padrão -->
+    <ng-container *ngIf="!searchMode; else searchBar">
+      <!-- PrimeNG: p-button component for the search button -->
+      <p-button
+        class="botao botao-ghost"
+        label="Buscar projeto"
+        icon="pi pi-search"
+        (onClick)="activateSearch()"
+      ></p-button>
 
-    <button class="botao botao-solid" aria-label="Criar novo projeto">
-      <span class="icone-mais">+</span>
-      <span>Novo projeto</span>
-    </button>
+      <div class="botao botao-solid">
+        <p-button label="Novo projeto" icon="pi pi-plus" />
+      </div>
+    </ng-container>
+<!-- PrimeNG: PrimeIcons for plus icon -->
+    <!-- Template de campo de busca -->
+    <ng-template #searchBar>
+      <!-- Preline UI: Tailwind-based flex container for search bar -->
+      <div class="search-container">
+        <!-- Preline UI: Tailwind-styled search field with custom border and shadow -->
+        <div class="search-field">
+          <!-- PrimeNG: PrimeIcons for search icon -->
+          <i class="pi pi-search"></i>
+
+          <!-- Preline UI: Tailwind-styled input with focus and placeholder classes -->
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Buscar projeto..."
+          />
+
+          <!-- PrimeNG: PrimeIcons for clear icon (x), with Preline UI cursor styling -->
+          <i
+            *ngIf="searchText"
+            class="pi pi-times cursor-pointer"
+            (click)="clearSearch()"
+            aria-label="Limpar busca"
+          ></i>
+        </div>
+
+        <!-- PrimeNG: p-button component for cancel button -->
+        <p-button
+          class="botao-cancelar"
+          label="Cancelar"
+          (onClick)="cancelSearch()"
+        ></p-button>
+      </div>
+    </ng-template>
   </div>
 </div>

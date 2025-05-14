@@ -1,3 +1,4 @@
+import { Project, ProjectsService } from 'src/app/services/projects.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor( private ProjectsService: ProjectsService) { }
+projects: Project[] = [];
 
   ngOnInit() {
+    this.ProjectsService.getProjects().subscribe({
+      next: (data) => this.projects = data,
+      error: (error) => console.error('Erro ao carregar coleções:', error)
+    })
   }
 
 }

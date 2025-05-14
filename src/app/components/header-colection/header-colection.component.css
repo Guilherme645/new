@@ -22,30 +22,42 @@
   margin-left: 500px;
 }
 
+
 .botao {
   display: flex;
   align-items: center;
   gap: 8px;
   height: 48px;
-  padding: 0 16px;
+  padding: 12px;
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.2s ease-in-out;
 }
 
 .botao-ghost {
+  width: 148px;
   background: transparent;
   color: var(--gray-600, #535862);
   border: none;
 }
 
+.botao-ghost:hover {
+  background: #F5F5F5;
+}
+
 .botao-solid {
+  width: 135px;
   background: var(--primary-pure, #F9CC13);
-  color: var(--gray-900, #07080A);
-  border: 1px solid var(--primary-600, #C7A30F);
+  border: 0.8px solid #957A0B;
+}
+
+.botao-solid:hover {
+  background: #C7A30F;
+  border: 0.8px solid #957A0B;
 }
 
 .icone-mais {
