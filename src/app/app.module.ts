@@ -18,6 +18,7 @@ import { HeaderColectionComponent } from './components/header-colection/header-c
 import { CreateNewColectionComponent } from './components/create-new-colection/create-new-colection.component';
 import { ColectionPageComponent } from './pages/colection-page/colection-page.component';
 import { PageCreateColectionComponent } from './pages/page-create-colection/page-create-colection.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { PageCreateColectionComponent } from './pages/page-create-colection/page
     ButtonModule,
     DropdownModule,
     FormsModule,
-    RouterOutlet
+    RouterOutlet,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

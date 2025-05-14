@@ -6,7 +6,7 @@ import { ColectionPageComponent } from './pages/colection-page/colection-page.co
 import { PageCreateColectionComponent } from './pages/page-create-colection/page-create-colection.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
+  { path: '', redirectTo: '/tabela-projetos', pathMatch: 'full' }, 
     { path: 'tabela-projetos', component: ProjectsPageComponent }, 
   { path: 'novo-projeto', component: PageCreateProjectComponent }, 
     { path: 'nova-coleção', component: PageCreateColectionComponent  }, 
