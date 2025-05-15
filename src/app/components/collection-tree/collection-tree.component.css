@@ -1,23 +1,24 @@
 .subcollections-container {
   width: 100%;
+  max-width: 100%; /* ✅ Garante que o contêiner não exceda o pai */
   border: 1px solid #f0f0f0;
-  border-radius: 8px;
   background: #fff;
-  overflow: visible;
+  overflow-x: hidden; /* ✅ Impede vazamento horizontal */
   padding: 0;
   margin: 0;
+  box-sizing: border-box; /* ✅ Inclui padding e bordas na largura */
 }
 
-.subcollections-table th.nome {
-  padding-left: 77px; /* ajuste o valor conforme necessário */
-}
 .subcollections-table {
   width: 100%;
-  min-width: 100%;
+  max-width: 100%; /* ✅ Garante que a tabela não exceda o pai */
+  min-width: unset; /* ✅ Remove largura mínima que pode causar vazamento */
   border-collapse: collapse;
-  table-layout: fixed; /* Usar table-layout: fixed para forçar larguras exatas */
+  table-layout: fixed; /* ✅ Força larguras exatas */
+  box-sizing: border-box; /* ✅ Inclui padding e bordas na largura */
 }
 
+/* Ajuste de largura das colunas para corresponder ao componente pai */
 .subcollections-table th,
 .subcollections-table td {
   text-align: left;
@@ -25,8 +26,8 @@
   font-size: 12px;
   color: #606770;
   font-weight: 600;
-  border-bottom: 1px solid #f0f0f0;
   vertical-align: middle;
+  box-sizing: border-box; /* ✅ Inclui padding e bordas na largura */
 }
 
 .subcollections-table td {
@@ -34,39 +35,32 @@
   color: #333;
 }
 
-/* Ajuste de largura das colunas para corresponder ao componente pai */
-.subcollections-table th.menu-lateral,
-.subcollections-table td.menu-lateral {
-  width: 60px;
-  text-align: center;
-}
-
 .subcollections-table th.nome,
 .subcollections-table td.nome {
-  width: 444px; /* Corresponde à primeira .coluna.descricao do pai */
+  width: 349px; /* Corresponde à primeira .coluna.descricao do pai */
 }
 
 .subcollections-table th.descricao,
 .subcollections-table td.descricao {
-  width: 444px; /* Corresponde à segunda .coluna.descricao do pai */
+  width: 313px; /* Corresponde à segunda .coluna.descricao do pai */
 }
 
 .subcollections-table th.indexacao,
 .subcollections-table td.indexacao {
-  width: 385px; /* Corresponde à .coluna.indexacao do pai */
+  width: 363px; /* Corresponde à .coluna.indexacao do pai */
+  padding-left: 0; /* ✅ Remove padding que pode causar deslocamento */
 }
 
-.subcollections-table th.icones-finais,
-.subcollections-table td.icones-finais {
-  width: 60px;
-  text-align: center;
+.subcollections-table th.nome {
+  padding-left: 77px; /* Mantém o ajuste de padding, mas será compensado */
 }
 
 .nome .nome-colecao {
   display: flex;
   align-items: center;
   gap: 4px;
-      margin-left: 69px;
+  margin-left: 0; /* ✅ Remove margem que causava vazamento */
+  padding-left: 69px; /* ✅ Usa padding para o ajuste visual */
 }
 
 .prefixo {
@@ -77,7 +71,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-      margin-left: -61px;
+  margin-left: 10px; /* ✅ Remove margem negativa que causava vazamento */
+  padding-left: 0; /* ✅ Ajusta o posicionamento sem deslocar */
 }
 
 .add-btn {
@@ -93,7 +88,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: -60px;
+  margin-left: -10; /* ✅ Remove margem negativa que causava vazamento */
 }
 
 .percent {

@@ -6,12 +6,11 @@
 </div>
 <div class="tabela">
   <app-tabela
-  [data]="projects"
-  [type]="'project'"
-  [totalItems]="projects.length"
-  [totalPages]="1"
-  [currentPage]="1"
-  >
-
-  </app-tabela>
+    [data]="projects"
+    [type]="'project'"
+    [totalItems]="totalItems"
+    [totalPages]="totalPages"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  ></app-tabela>
 </div>

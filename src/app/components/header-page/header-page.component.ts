@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-header-page',
@@ -9,7 +10,7 @@ export class HeaderPageComponent implements OnInit {
   searchMode = false;
   searchText = '';
 
-  constructor() {}
+  constructor(private projectsService: ProjectsService) {}
 
   ngOnInit() {}
 
@@ -20,9 +21,15 @@ export class HeaderPageComponent implements OnInit {
   cancelSearch() {
     this.searchMode = false;
     this.searchText = '';
+    this.projectsService.setSearchText('');
   }
 
   clearSearch() {
     this.searchText = '';
+    this.projectsService.setSearchText('');
+  }
+
+  onSearchTextChange() {
+    this.projectsService.setSearchText(this.searchText);
   }
 }

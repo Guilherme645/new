@@ -16,7 +16,7 @@
         <p-button label="Novo projeto" icon="pi pi-plus" />
       </div>
     </ng-container>
-<!-- PrimeNG: PrimeIcons for plus icon -->
+
     <!-- Template de campo de busca -->
     <ng-template #searchBar>
       <!-- Preline UI: Tailwind-based flex container for search bar -->
@@ -30,6 +30,7 @@
           <input
             type="text"
             [(ngModel)]="searchText"
+            (ngModelChange)="onSearchTextChange()"
             placeholder="Buscar projeto..."
           />
 

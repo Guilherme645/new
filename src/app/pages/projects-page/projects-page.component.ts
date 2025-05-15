@@ -1,5 +1,5 @@
-import { Project, ProjectsService } from 'src/app/services/projects.service';
 import { Component, OnInit } from '@angular/core';
+import { Project, ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-projects-page',
@@ -7,15 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects-page.component.css']
 })
 export class ProjectsPageComponent implements OnInit {
+  projects: any[] = [];
+  totalItems: number = 0;
+  totalPages: number = 1;
+  currentPage: number = 1;
 
-  constructor( private ProjectsService: ProjectsService) { }
-projects: Project[] = [];
+  constructor(private projectsService: ProjectsService) {}
 
   ngOnInit() {
-    this.ProjectsService.getProjects().subscribe({
-      next: (data) => this.projects = data,
-      error: (error) => console.error('Erro ao carregar coleções:', error)
-    })
+    this.loadPage(this.currentPage);
   }
 
+  loadPage(page: number) {
+    this.projectsService.getPaginatedProjects(page).subscribe({
+      next: (data) => {
+        this.projects = data.projects.map(project => ({
+          ...project,
+          expanded: false,
+          subcollections: [
+            { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'success', progressPercent: 100 },
+            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pending', progressPercent: 0 }
+          ]
+        }));
+        this.totalItems = data.totalItems;
+        this.totalPages = data.totalPages;
+        this.currentPage = data.currentPage;
+      },
+      error: (error) => console.error('Erro ao carregar projetos:', error)
+    });
+  }
+
+  onPageChange(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.loadPage(page);
+    }
+  }
 }

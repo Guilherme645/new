@@ -1,19 +1,42 @@
-.container {
-  width: 1256px;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
+/* Wrapper da Tabela */
+.table-wrapper {
+  overflow-y: auto;
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - 240px);
+  min-height: 660px;
+  contain: content;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
 }
 
+/* Container principal */
+.container {
+  width: 100%;
+  max-width: 1256px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Tabela */
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
+  table-layout: fixed; /* Garante controle das colunas */
+  background-color: #fff;
+}
+
+.custom-margin-right {
+  margin-left: 16px; /* ou ajuste conforme necessário */
 }
 
 /* Colunas */
 .menu-lateral {
-  width: 60px;
+  width: 91px;
   padding: 8px;
   text-align: center;
   vertical-align: middle;
@@ -32,25 +55,36 @@
 }
 
 .coluna.descricao {
-  width: 444px;
-  padding: 8px;
+  padding: 8px 14px;
   vertical-align: middle;
+  min-width: 300px;
+  word-wrap: break-word;
 }
 
 .coluna.indexacao {
-  width: 385px;
-  padding: 8px;
+  padding: 8px opx;
   vertical-align: middle;
+ width: 401px;
+  word-wrap: break-word;
 }
 
 .icones-finais {
-  width: 60px;
-  padding: 8px;
+  width: 47px;
+  padding: 0px;
   text-align: center;
   vertical-align: middle;
 }
 
-/* Conteúdo e header */
+/* Cabeçalho fixo */
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+  box-shadow: 0 1px 0 #e0e0e0;
+}
+
+/* Conteúdo */
 .titulo {
   font-size: 12px;
   font-weight: 600;
@@ -58,12 +92,16 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  text-transform: uppercase;
 }
 
 .linha-texto {
   font-size: 14px;
   color: #333;
   padding: 8px 0;
+  overflow: visible;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .linha-texto.expanded {
@@ -73,6 +111,7 @@
 .icone-horizontal {
   height: 26px;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 /* Paginação */
@@ -80,9 +119,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
-  width: 1256px;
-  margin: 0 auto;
+  max-width: 1256px;
+  width: 100%;
+  margin: 16px auto 20px auto;
+  background-color: #fff;
 }
 
 .pagination-text {
@@ -125,66 +165,85 @@
   padding: 4px;
 }
 
-/* Ícones SVG */
-.shrink-0 {
-  flex-shrink: 0;
-}
-
-.transition-transform {
-  transition: transform 0.2s ease;
-}
-
-.rotate-90 {
-  transform: rotate(90deg);
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Células padrão */
 td, th {
-  vertical-align: top;
+  vertical-align: middle;
   padding: 12px 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Linha expandida */
 .expanded-row {
   padding: 0;
-  background-color: #FAFAFA;
-  height: auto !important;
-  overflow: visible !important;
+  background-color: #fafafa;
   border-top: 1px solid #f0f0f0;
-  margin: 0;
+  overflow: hidden;
 }
 
 .expanded-content {
-  display: block;
-  width: 100%;
-  height: auto !important;
-  overflow: visible !important;
-  padding: 0;
-  min-height: 0;
+     display: block;
+    width: 101%;
+    margin-left: -8px;
+    height: auto;
+    /* padding: 8px; */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* Corrige tabelas internas dentro do filho */
+/* Subcoleções */
 .subcollections-container {
   display: block;
   width: 100%;
-  overflow: visible;
+  overflow-x: auto;
 }
 
 .subcollections-table {
-  width: 1000px;
-  min-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   table-layout: auto;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
 }
 
-.subcollections-table tbody tr {
-  height: auto;
+.subcollections-table th,
+.subcollections-table td {
+  padding: 12px 8px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 14px;
+  word-wrap: break-word;
 }
 
-/* Estilização para o componente filho */
+/* Estilização do componente filho */
 app-collection-tree {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+/* Estilo da barra de rolagem */
+.table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 transparent;
 }
