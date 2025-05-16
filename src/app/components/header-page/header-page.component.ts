@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ProjectsService } from 'src/app/services/projects.service';
   styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
+    @Input() type: 'project' | 'collection' = 'project';
+
   searchMode = false;
   searchText = '';
 
@@ -14,20 +16,23 @@ export class HeaderPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  activateSearch() {
-    this.searchMode = true;
-  }
 
-  cancelSearch() {
-    this.searchMode = false;
-    this.searchText = '';
-    this.projectsService.setSearchText('');
-  }
+activateSearch() {
+  this.searchMode = true;
+}
 
-  clearSearch() {
-    this.searchText = '';
-    this.projectsService.setSearchText('');
-  }
+cancelSearch() {
+  this.searchText = '';
+  this.searchMode = false;
+  this.onSearchTextChange();
+}
+
+clearSearch() {
+  this.searchText = '';
+  this.onSearchTextChange();
+}
+
+
 
   onSearchTextChange() {
     this.projectsService.setSearchText(this.searchText);

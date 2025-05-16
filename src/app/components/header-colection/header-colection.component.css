@@ -1,5 +1,5 @@
 .cabecalho-colecoes {
-  width: 1375px;
+  width: 1255px;
   height: 120px;
   padding: 32px 48px 40px -12px;
   display: flex;
@@ -69,4 +69,53 @@
 .pi.pi-search {
   font-size: 14px;
   color: var(--gray-600, #535862);
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 435px;
+  height: 48px;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 340px;
+  height: 48px;
+  padding: 0 12px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 2px rgba(49, 76, 217, 0.2);
+}
+
+.search-field i {
+  font-size: 14px;
+  color: #535862;
+}
+
+.search-field input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.botao-cancelar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  width: 87px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #535862;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }

@@ -1,3 +1,4 @@
+import { CollectionsService } from './../../services/collections.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-colection.component.css']
 })
 export class HeaderColectionComponent implements OnInit {
+searchMode = false;
+  searchText = '';
 
-  constructor() { }
+  constructor(private CollectionsService: CollectionsService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  activateSearch() {
+    this.searchMode = true;
   }
 
+  cancelSearch() {
+    this.searchMode = false;
+    this.searchText = '';
+    this.CollectionsService.setSearchText('');
+  }
+
+  clearSearch() {
+    this.searchText = '';
+    this.CollectionsService.setSearchText('');
+  }
+
+  onSearchTextChange() {
+    this.CollectionsService.setSearchText(this.searchText);
+  }
 }

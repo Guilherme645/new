@@ -33,4 +33,11 @@ export class SideBarComponent implements OnInit {
   logout(): void {
     console.log('Logout clicado');
   }
+  isExpanded = true;
+
+/** Alterna o estado do sidebar */
+toggleSidebar() {
+  this.isExpanded = !this.isExpanded;
+}
+
 }

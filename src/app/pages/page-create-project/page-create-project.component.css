@@ -1,34 +1,32 @@
-.sidebar {
+/* Container principal */
+.layout-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 0;
-  gap: 133px;
-
-  position: absolute;
-  width: 88px;
-  height: 100%; /* Corrigido */
-  left: 0;
-  top: 0;
-
-  background: #15181F;
-  overflow: hidden; /* impede que elementos internos causem scroll */
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* Sidebar */
+/* Sidebar ocupa espaço fixo */
+app-side-bar {
+  flex-shrink: 0;
+}
+
+/* Área principal */
+.main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;       /* centraliza verticalmente */
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/* Componente central */
 .create {
+  width: 432px;
+  height: 506px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0;
   gap: 8px;
-
-  position: absolute;
-  width: 432px;
-  height: 506px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); /* Melhor prática para centralizar */
-
-  overflow: hidden;
 }

@@ -1,16 +1,15 @@
-<div class="sidebar">
+<div class="page-wrapper">
   <app-side-bar></app-side-bar>
-</div>
-<div class="header">
-  <app-header-page></app-header-page>
-</div>
-<div class="tabela">
-  <app-tabela
-    [data]="projects"
-    [type]="'project'"
-    [totalItems]="totalItems"
-    [totalPages]="totalPages"
-    [currentPage]="currentPage"
-    (pageChange)="onPageChange($event)"
-  ></app-tabela>
+
+  <div class="main-content">
+    <app-header-page [type]="'project'"></app-header-page>
+    <app-tabela
+      [data]="projects"
+      [type]="'project'"
+      [totalItems]="totalItems"
+      [totalPages]="totalPages"
+      [currentPage]="currentPage"
+      (pageChange)="onPageChange($event)"
+    ></app-tabela>
+  </div>
 </div>

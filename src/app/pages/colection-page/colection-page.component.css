@@ -1,62 +1,34 @@
-.sidebar{
-    /* sidebar_navigation */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-padding: 32px 0px;
-gap: 133px;
-
-position: absolute;
-width: 88px;
-height: 100%px;
-left: 0px;
-top: 0px;
-
-background: #15181F;
-
+/* Layout principal */
+.page-wrapper {
+  display: flex;
+  height: 100vh; /* Altura total da tela */
+  overflow: hidden;
+}
+/* Sidebar ocupa espaço fixo */
+app-side-bar {
+  flex-shrink: 0;
 }
 
-.tabela{
-    /* table */
-
-box-sizing: border-box;
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 0px;
-
-position: absolute;
-width: 1256px;
-height: 576px;
-left: 136px;
-top: 120px;
-
-background: #FFFFFF;
-border: 1px solid #F5F5F5;
-border-radius: 8px;
-
+/* Conteúdo principal cresce */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: -34px;
 }
-.header{
-    /* header */
 
-/* Auto layout */
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 32px 48px 40px;
-gap: 32px;
+/* Header fixo no topo */
+app-header-page {
+  padding: 32px 48px 40px;
+  flex-shrink: 0;
+}
 
-position: absolute;
-width: 1352px;
-height: 120px;
-left: 88px;
-top: 0px;
-
+/* Tabela ocupa o resto */
+app-tabela {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0 48px;
+  width: 1352px;
 
 }

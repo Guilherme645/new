@@ -185,6 +185,15 @@ td, th {
   overflow: hidden;
 }
 
+.icon-wrapper-two {
+  margin-left: 232px; /* Ajuste o valor para mover o ícone mais para a direita */
+}
+
+.icon-wrapper-one{
+    margin-left: 167px; /* Ajuste o valor para mover o ícone mais para a direita */
+
+}
+
 .expanded-content {
      display: block;
     width: 101%;
