@@ -31,7 +31,7 @@ export class SideBarComponent implements OnInit {
   }
 
   logout(): void {
-    console.log('Logout clicado');
+   this.router.navigate(['/login']);
   }
   isExpanded = true;
 

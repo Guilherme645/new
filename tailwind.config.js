@@ -2,10 +2,10 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
-    "./node_modules/preline/**/*.{js,ts}", // importante para o Preline funcionar
+    "./node_modules/preline/**/*.{js,ts}",
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [], // sem o require('preline/plugin')
 };

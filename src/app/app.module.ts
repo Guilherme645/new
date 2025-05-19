@@ -22,6 +22,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MenuModule } from 'primeng/menu';
 import { CollectionTreeComponent } from './components/collection-tree/collection-tree.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { NewPasswordPageComponent } from './pages/new-password-page/new-password-page.component';
 
 
 @NgModule({
@@ -39,7 +45,13 @@ import { CollectionTreeComponent } from './components/collection-tree/collection
     ColectionPageComponent,
     PageCreateColectionComponent,
     DropdownComponent,
-  CollectionTreeComponent
+  CollectionTreeComponent,
+  LoginComponent,
+  LoginPageComponent,
+  ForgotPasswordComponent,
+  ForgotPasswordPageComponent,
+  NewPasswordComponent,
+  NewPasswordPageComponent
 
     
   ],
@@ -52,7 +64,8 @@ import { CollectionTreeComponent } from './components/collection-tree/collection
     RouterOutlet,
     HttpClientModule,
     ReactiveFormsModule,
-    MenuModule
+    MenuModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
