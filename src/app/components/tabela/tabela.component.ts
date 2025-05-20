@@ -14,6 +14,11 @@ export class TabelaComponent implements OnInit {
   @Output() pageChange = new EventEmitter<number>();
 sortField: string = '';
 sortDirection: 'asc' | 'desc' = 'asc';
+dropdownIndex: number | null = null;
+@Output() edit = new EventEmitter<any>();
+@Output() duplicate = new EventEmitter<any>();
+@Output() remove = new EventEmitter<any>();
+
   constructor() {}
 
   ngOnInit() {}
@@ -34,6 +39,7 @@ sortDirection: 'asc' | 'desc' = 'asc';
     }
   }
 
+  
 
   sortBy(field: string) {
   if (this.sortField === field) {
@@ -54,5 +60,25 @@ sortData() {
     if (valA > valB) return this.sortDirection === 'asc' ? 1 : -1;
     return 0;
   });
+}
+
+
+toggleDropdown(index: number) {
+  this.dropdownIndex = this.dropdownIndex === index ? null : index;
+}
+
+handleEdit() {
+  this.dropdownIndex = null;
+  // lógica de edição
+}
+
+handleDuplicate() {
+  this.dropdownIndex = null;
+  // lógica de duplicação
+}
+
+handleRemove() {
+  this.dropdownIndex = null;
+  // lógica de remoção
 }
 }

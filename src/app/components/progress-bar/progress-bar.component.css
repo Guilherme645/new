@@ -11,11 +11,12 @@
   width: 24px;
   height: 24px;
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible; 
 }
+
 
 .progress-bar-container {
   width: 148px;
@@ -75,7 +76,7 @@
     line-height: 16.8px;
     color: var(--gray-700, #414651);
     word-wrap: break-word;
-    margin-left: 85px;
+    margin-left: 150px;
 }
 .icones-container {
   width: 100%;

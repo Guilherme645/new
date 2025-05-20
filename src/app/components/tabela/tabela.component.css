@@ -8,7 +8,7 @@
   min-height: 660px;
   contain: content;
   box-sizing: border-box;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #F5F5F5;
   background-color: #fff;
 }
 
@@ -18,8 +18,15 @@
   max-width: 1256px;
   margin: 0 auto;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
+}
+app-option-dropdown {
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  min-width: 180px;
+  z-index: 9999;
 }
 
 /* Tabela */
@@ -174,7 +181,7 @@
 td, th {
   vertical-align: middle;
   padding: 12px 8px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 /* Linha expandida */
@@ -190,7 +197,7 @@ td, th {
 }
 
 .icon-wrapper-one{
-    margin-left: 167px; /* Ajuste o valor para mover o ícone mais para a direita */
+    margin-left: 159px; /* Ajuste o valor para mover o ícone mais para a direita */
 
 }
 

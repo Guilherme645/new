@@ -1,3 +1,4 @@
+import { OptionDropdownComponent } from './components/option-dropdown/option-dropdown.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ButtonModule } from 'primeng/button';
@@ -28,6 +29,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { NewPasswordPageComponent } from './pages/new-password-page/new-password-page.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { ModalRemoveComponent } from './components/modal-remove/modal-remove.component';
 
 
 @NgModule({
@@ -51,8 +54,10 @@ import { NewPasswordPageComponent } from './pages/new-password-page/new-password
   ForgotPasswordComponent,
   ForgotPasswordPageComponent,
   NewPasswordComponent,
-  NewPasswordPageComponent
-
+  NewPasswordPageComponent,
+  TooltipComponent,
+  OptionDropdownComponent,
+  ModalRemoveComponent
     
   ],
   imports: [

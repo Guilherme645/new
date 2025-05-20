@@ -1,0 +1,68 @@
+<!-- Container Geral -->
+<div class="w-[480px] bg-white rounded-xl shadow-xl py-8 flex flex-col gap-4">
+
+  <!-- Cabeçalho -->
+  <div class="px-8 flex flex-col gap-6 relative">
+    <!-- Ícone -->
+    <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+        <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 6h12M10 11v6m4-6v6M5 6l1 14c.1.9.8 1.5 1.7 1.5h8.6c.9 0 1.6-.6 1.7-1.5l1-14"/>
+      </svg>
+    </div>
+
+    <!-- Título + Texto -->
+    <div class="flex flex-col gap-3">
+      <h3 class="text-gray-800 text-2xl font-semibold leading-7">
+        {{ isProject ? 'Remover projeto' : 'Apagar indexação do projeto' }}
+      </h3>
+      <p class="text-gray-600 font-medium text-base leading-snug font-inter">
+        {{ isProject ? 'Ao remover o Projeto' : 'Ao apagar a indexação do Projeto' }}
+        <span class="text-gray-800 font-semibold"> Legislações</span>,
+        {{ isProject
+          ? 'você perderá todas as configurações atreladas ao projeto de forma permanente'
+          : 'você perderá tudo que foi indexado nas coleções vinculadas ao projeto até o momento' }},
+        <span class="text-gray-800 font-semibold"> essa ação é irreversível</span>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Divisor -->
+  <div class="border-t border-gray-300 mx-8"></div>
+
+  <!-- Campo de Confirmação -->
+  <div class="px-8 flex flex-col gap-2">
+    <p class="text-gray-600 text-base font-medium font-inter leading-snug">
+      {{ isProject
+        ? 'Para confirmar digite o nome do projeto abaixo'
+        : 'Para confirmar digite “APAGAR” abaixo' }}
+    </p>
+    <input
+      [(ngModel)]="inputValue"
+      type="text"
+      class="block w-full rounded-md border border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm px-3 py-2"
+      placeholder=""
+    />
+  </div>
+
+  <!-- Botões -->
+  <div class="px-8 flex justify-end gap-2 mt-4">
+    <button
+      type="button"
+      class="inline-flex items-center justify-center h-12 px-4 text-sm font-semibold text-gray-600 transition-colors duration-200 bg-transparent rounded-md hover:bg-gray-100"
+    >
+      Cancelar
+    </button>
+
+    <button
+      [disabled]="!isValid()"
+      [ngClass]="{
+        'bg-red-600 cursor-pointer': isValid(),
+        'bg-red-300 cursor-not-allowed': !isValid()
+      }"
+      class="inline-flex items-center justify-center h-12 px-4 text-sm font-medium text-white rounded-md"
+    >
+      {{ isProject ? 'Remover projeto' : 'Apagar indexação' }}
+    </button>
+  </div>
+</div>
