@@ -1,34 +1,20 @@
-/* Layout principal */
-.page-wrapper {
-  display: flex;
-  height: 100vh; /* Altura total da tela */
-  overflow: hidden;
-}
-/* Sidebar ocupa espaço fixo */
-app-side-bar {
-  flex-shrink: 0;
-}
 
-/* Conteúdo principal cresce */
-.main-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  margin-top: -34px;
-}
-
-/* Header fixo no topo */
+/* Header fixo */
 app-header-page {
-  padding: 32px 48px 40px;
-  flex-shrink: 0;
-}
-
-/* Tabela ocupa o resto */
-app-tabela {
   flex-grow: 1;
   overflow-y: auto;
   padding: 0 48px;
-  width: 1352px;
+  max-width: calc(1440px - 254px);
+  margin-left: 254px;
+  box-sizing: border-box;
+}
 
+/* Container da tabela */
+.content-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0 48px;
+  max-width: calc(1440px - 254px);
+  margin-left: 254px;
+  box-sizing: border-box;
 }

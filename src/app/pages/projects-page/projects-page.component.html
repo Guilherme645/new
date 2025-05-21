@@ -3,15 +3,16 @@
 
   <div class="main-content">
     <app-header-page [type]="'project'"></app-header-page>
-   <app-tabela
-  [data]="projects"
-  [type]="'project'"
-  [totalItems]="totalItems"
-  [totalPages]="totalPages"
-  [currentPage]="currentPage"
-  (pageChange)="onPageChange($event)"
- 
-></app-tabela>
 
+    <div class="content-wrapper">
+      <app-tabela
+        [data]="projects"
+        [type]="'project'"
+        [totalItems]="totalItems"
+        [totalPages]="totalPages"
+        [currentPage]="currentPage"
+        (pageChange)="onPageChange($event)"
+      ></app-tabela>
+    </div>
   </div>
 </div>
