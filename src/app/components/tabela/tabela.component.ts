@@ -18,6 +18,7 @@ dropdownIndex: number | null = null;
 @Output() edit = new EventEmitter<any>();
 @Output() duplicate = new EventEmitter<any>();
 @Output() remove = new EventEmitter<any>();
+@Output() openRemove = new EventEmitter<void>();
 
   constructor() {}
 
@@ -39,7 +40,9 @@ dropdownIndex: number | null = null;
     }
   }
 
-  
+  emitOpenRemove() {
+  this.openRemove.emit(); // repassa o evento para ProjectsPageComponent
+}
 
   sortBy(field: string) {
   if (this.sortField === field) {

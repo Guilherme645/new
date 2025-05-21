@@ -12,7 +12,15 @@
         [totalPages]="totalPages"
         [currentPage]="currentPage"
         (pageChange)="onPageChange($event)"
+  (openRemove)="showRemoveModal = true"
+        
       ></app-tabela>
     </div>
   </div>
 </div>
+<div *ngIf="showRemoveModal" class="modal"></div>
+<app-modal-remove
+  *ngIf="showRemoveModal"
+  [type]="'index'"
+  (clickOutside)="closeModal()"
+></app-modal-remove>

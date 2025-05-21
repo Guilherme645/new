@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit {
-  isExpanded: boolean = true;
-  activeMenuItem: number = 0;
+export class SideBarComponent {
+isExpanded = true;
+  activeMenuItem = 0;
+notificationVisible: boolean = false;
 
   menuItems = [
     { label: 'Início', iconClass: 'inicio-icon', route: '/home', hasNotification: false },
@@ -17,25 +18,25 @@ export class SideBarComponent implements OnInit {
     { label: 'Usuários', iconClass: 'usuarios-icon', route: '/users', hasNotification: false },
     { label: 'Notificações', iconClass: 'notificacoes-icon', route: '/notifications', hasNotification: true }
   ];
-
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    const currentRoute = this.router.url;
-    const index = this.menuItems.findIndex(item => currentRoute.startsWith(item.route));
-    this.activeMenuItem = index !== -1 ? index : 0;
-  }
-
   toggleSidebar() {
     this.isExpanded = !this.isExpanded;
   }
 
+  handleMenuClick(index: number, iconClass: string) {
+    if (iconClass === 'notificacoes-icon') {
+      this.notificationVisible = !this.notificationVisible;
+    } else {
+      this.setActiveMenuItem(index);
+    }
+  }
+
   setActiveMenuItem(index: number) {
     this.activeMenuItem = index;
-    this.router.navigate([this.menuItems[index].route]);
+    this.notificationVisible = false; // Close notifications when navigating
   }
 
   logout() {
-    this.router.navigate(['/login']);
+    // Implement logout logic
+    console.log('Logout clicked');
   }
 }

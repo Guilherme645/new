@@ -2,13 +2,16 @@
   <app-side-bar></app-side-bar>
 
   <div class="main-content">
-    <app-header-page [type]="'collection'"></app-header-page>
-     <app-tabela
+    <app-header-page [type]="'project'"></app-header-page>
+
+    <div class="content-wrapper">
+         <app-tabela
         [data]="collections"
         [type]="'collection'"
         [totalItems]="collections.length"
         [totalPages]="2"
         [currentPage]="1"
       ></app-tabela>
+    </div>
   </div>
 </div>

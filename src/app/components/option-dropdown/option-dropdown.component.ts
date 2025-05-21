@@ -8,8 +8,7 @@ export class OptionDropdownComponent {
   @Output() edit = new EventEmitter<void>();
   @Output() duplicate = new EventEmitter<void>();
   @Output() remove = new EventEmitter<void>();
-
-  showRemoveModal = false
+  @Output() openRemove = new EventEmitter<void>(); // ✅ ADICIONE ESTA LINHA
 
   onEdit() {
     this.edit.emit();
@@ -23,11 +22,7 @@ export class OptionDropdownComponent {
     this.remove.emit();
   }
 
-openRemove(){
-  this.showRemoveModal = true;
-}
-
-closeModal(){
-  this.showRemoveModal = false;
-}
+  openRemoveModal() {
+    this.openRemove.emit(); // ✅ EMITE PARA O COMPONENTE PAI
+  }
 }

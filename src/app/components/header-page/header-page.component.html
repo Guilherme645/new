@@ -1,48 +1,48 @@
-<div class="cabecalho-colecoes">
-  <h1 class="titulo">
+<div class="w-full max-w-[1256px] h-[120px] px-6 py-8 ml-[284px] flex flex-wrap justify-between items-center gap-4 overflow-hidden box-border">
+  <h1 class="font-['DM_Sans'] text-[32px] leading-[38px] font-semibold text-[#414651] tracking-[-0.02em]">
     {{ type === 'project' ? 'Gerenciar Projetos' : 'Gerenciar Coleções' }}
   </h1>
 
-  <div class="acoes">
+  <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-end">
     <!-- Botões padrão -->
     <ng-container *ngIf="!searchMode; else searchBar">
       <p-button
-        class="botao botao-ghost"
+        class="flex items-center gap-2 h-12 px-4 rounded-[4px] text-sm font-semibold text-[#535862] bg-transparent hover:bg-gray-100 border border-[#535862] transition-all duration-200"
         [label]="type === 'project' ? 'Buscar projeto' : 'Buscar coleção'"
         icon="pi pi-search"
         (onClick)="activateSearch()"
       ></p-button>
 
-      <div class="botao botao-solid">
+      <div class="flex items-center h-12 px-4 rounded-[4px] text-sm font-medium text-[#07080A] bg-[#F9CC13] border-[0.8px] border-[#C7A30F] hover:bg-yellow-500 transition">
         <p-button
           [label]="type === 'project' ? 'Novo projeto' : 'Nova coleção'"
           icon="pi pi-plus"
-        />
+        ></p-button>
       </div>
     </ng-container>
 
     <!-- Campo de busca -->
     <ng-template #searchBar>
-      <div class="search-container">
-        <div class="search-field">
-          <i class="pi pi-search"></i>
+      <div class="flex flex-wrap items-center gap-2 w-full sm:w-[435px]">
+        <div class="flex items-center gap-2 w-full sm:w-[340px] h-12 px-3 bg-white rounded shadow-[0_0_0_2px_rgba(49,76,217,0.2)]">
+          <i class="pi pi-search text-sm text-gray-600"></i>
           <input
             type="text"
-            class="w-full h-[46px] text-gray-900 bg-transparent border-none outline-none text-sm px-1 placeholder-gray-500"
+            class="flex-1 h-[46px] text-gray-900 bg-transparent border-none outline-none text-sm px-1 placeholder-gray-500"
             [(ngModel)]="searchText"
             (ngModelChange)="onSearchTextChange()"
             [placeholder]="type === 'project' ? 'Buscar projeto...' : 'Buscar coleção...'"
           />
           <i
             *ngIf="searchText"
-            class="pi pi-times cursor-pointer"
+            class="pi pi-times cursor-pointer text-sm text-gray-600"
             (click)="clearSearch()"
             aria-label="Limpar busca"
           ></i>
         </div>
 
         <p-button
-          class="botao-cancelar"
+          class="flex justify-center items-center w-[87px] h-12 px-3 bg-transparent border-none rounded text-sm font-semibold text-gray-600 cursor-pointer"
           label="Cancelar"
           (onClick)="cancelSearch()"
         ></p-button>

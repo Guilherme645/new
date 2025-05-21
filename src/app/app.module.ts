@@ -31,6 +31,8 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
 import { NewPasswordPageComponent } from './pages/new-password-page/new-password-page.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { ModalRemoveComponent } from './components/modal-remove/modal-remove.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationCardComponent } from './components/notification-card/notification-card.component';
 
 
 @NgModule({
@@ -57,7 +59,10 @@ import { ModalRemoveComponent } from './components/modal-remove/modal-remove.com
   NewPasswordPageComponent,
   TooltipComponent,
   OptionDropdownComponent,
-  ModalRemoveComponent
+  ModalRemoveComponent,
+  NotificationComponent,
+  NotificationCardComponent
+
     
   ],
   imports: [

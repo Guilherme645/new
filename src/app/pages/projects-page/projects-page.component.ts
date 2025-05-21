@@ -11,6 +11,7 @@ export class ProjectsPageComponent implements OnInit {
   totalItems: number = 0;
   totalPages: number = 1;
   currentPage: number = 1;
+showRemoveModal = false;
 
   constructor(private projectsService: ProjectsService) {}
 
@@ -42,4 +43,8 @@ export class ProjectsPageComponent implements OnInit {
       this.loadPage(page);
     }
   }
+
+  closeModal() {
+  this.showRemoveModal = false;
+}
 }

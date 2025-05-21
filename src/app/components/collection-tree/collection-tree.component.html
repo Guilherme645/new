@@ -1,14 +1,18 @@
-<div class="subcollections-container">
-  <table class="subcollections-table">
+<div class="w-full max-w-full border border-gray-200 bg-white overflow-x-hidden box-border">
+  <table class="w-full max-w-full border-collapse table-fixed box-border">
     <!-- Cabeçalhos -->
     <thead>
       <tr>
-        <th class="nome">NOME DA COLEÇÃO</th>
-        <th class="descricao">DESCRIÇÃO DA COLEÇÃO</th>
-        <th class="indexacao">
-          <div class="index-header">
+        <th class="w-[349px] text-left pl-[77px] pr-2 py-3 text-xs font-semibold text-gray-600 align-middle box-border">
+          NOME DA COLEÇÃO
+        </th>
+        <th class="w-[313px] text-left px-2 py-3 text-xs font-semibold text-gray-600 align-middle box-border">
+          DESCRIÇÃO DA COLEÇÃO
+        </th>
+        <th class="w-[363px] text-left pl-0 pr-2 py-3 text-xs font-semibold text-gray-600 align-middle box-border">
+          <div class="flex justify-between items-center ml-[-45px]">
             INDEXAÇÃO DA COLEÇÃO
-            <button class="add-btn">+</button>
+            <button class="bg-gray-100 text-gray-800 text-base font-normal px-2 py-1 rounded cursor-pointer">+</button>
           </div>
         </th>
       </tr>
@@ -17,17 +21,17 @@
     <!-- Corpo -->
     <tbody>
       <tr *ngFor="let item of data">
-        <td class="nome">
-          <span class="nome-colecao">
-            <span class="prefixo">(Coleção)</span>
+        <td class="w-[349px] text-left pl-[77px] pr-2 py-3 text-sm text-gray-900 align-middle box-border">
+          <span class="flex items-center gap-1">
+            <span class="text-gray-400">(Coleção)</span>
             <strong>{{ item.name }}</strong>
           </span>
         </td>
-        <td class="descricao">
+        <td class="w-[313px] text-left px-2 py-3 text-sm text-gray-900 align-middle box-border">
           {{ item.description }}
         </td>
-        <td class="indexacao">
-          <div class="indexacao-content">
+        <td class="w-[363px] text-left pl-0 pr-2 py-3 align-middle box-border">
+          <div class="flex items-center gap-2  ml-[-45px]">
             <app-progress-bar [state]="item.progressState" [percent]="item.progressPercent"></app-progress-bar>
           </div>
         </td>
