@@ -5,11 +5,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
+  toastMessage = '';
+  toastType: 'success' | 'error' = 'success';
+  toastVisible = false;
 
-  constructor() { }
+  showToast(event: { type: 'success' | 'error'; message: string }) {
+    this.toastMessage = event.message;
+    this.toastType = event.type;
+    this.toastVisible = true;
 
-  ngOnInit() {
+    // Ocultar após 3 segundos
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 3000);
   }
-
 }

@@ -33,6 +33,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { ModalRemoveComponent } from './components/modal-remove/modal-remove.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { NotificationCardComponent } from './components/notification-card/notification-card.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { NotificationCardComponent } from './components/notification-card/notifi
   OptionDropdownComponent,
   ModalRemoveComponent,
   NotificationComponent,
-  NotificationCardComponent
+  NotificationCardComponent,
+  ToastComponent,
+  DashboardPageComponent
 
     
   ],

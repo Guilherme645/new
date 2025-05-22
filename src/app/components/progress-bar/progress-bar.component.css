@@ -1,0 +1,17 @@
+/* progress-bar.component.css */
+
+.verde {
+  background-color: #027A48; /* verde - complete */
+}
+
+.azul {
+  background-color: #2563eb; /* azul - active */
+}
+
+.laranja {
+  background-color: #f97316; /* laranja - pause */
+}
+
+.vermelho {
+  background-color: #dc2626; /* vermelho - error */
+}

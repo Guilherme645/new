@@ -26,8 +26,8 @@ showRemoveModal = false;
           ...project,
           expanded: false,
           subcollections: [
-            { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'success', progressPercent: 100 },
-            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pending', progressPercent: 0 }
+            { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'complete', progressPercent: 100 },
+            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pause', progressPercent: 14 }
           ]
         }));
         this.totalItems = data.totalItems;
