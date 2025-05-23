@@ -19,69 +19,105 @@ dropdownIndex: number | null = null;
 @Output() duplicate = new EventEmitter<any>();
 @Output() remove = new EventEmitter<any>();
 @Output() openRemove = new EventEmitter<void>();
+modalType: 'index' | 'project' = 'index';
+showRemoveModal = false;
+@Output() openRemoveTyped = new EventEmitter<'index' | 'project'>();
 
-  constructor() {}
+ constructor() {}
 
-  ngOnInit() {}
-
-  toggleItem(index: number) {
-    this.data[index].expanded = !this.data[index].expanded;
+  // Método do ciclo de vida OnInit (executado na inicialização do componente)
+  ngOnInit() {
+    // TODO: Adicionar lógica de inicialização, se necessário (ex.: carregar dados iniciais)
   }
 
+  // Alterna o estado de expansão de uma linha (usado para exibir subcoleções em projetos)
+  toggleItem(index: number) {
+    this.data[index].expanded = !this.data[index].expanded; // Inverte o valor de 'expanded' para a linha especificada
+  }
+
+  // Emite um evento para abrir o modal de remoção de projeto
+  emitOpenRemoveProject() {
+    this.openRemoveTyped.emit('project'); // Emite o tipo 'project' para o componente pai
+  }
+
+  // Navega para a página anterior, se disponível
   previousPage() {
     if (this.currentPage > 1) {
-      this.pageChange.emit(this.currentPage - 1);
+      this.pageChange.emit(this.currentPage - 1); // Emite a nova página (atual - 1)
     }
   }
 
+  // Navega para a próxima página, se disponível
   nextPage() {
     if (this.currentPage < this.totalPages) {
-      this.pageChange.emit(this.currentPage + 1);
+      this.pageChange.emit(this.currentPage + 1); // Emite a nova página (atual + 1)
     }
   }
 
+  // Emite um evento para abrir o modal de remoção e fecha o dropdown
   emitOpenRemove() {
-  this.openRemove.emit(); // repassa o evento para ProjectsPageComponent
-}
-
-  sortBy(field: string) {
-  if (this.sortField === field) {
-    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-  } else {
-    this.sortField = field;
-    this.sortDirection = 'asc';
+    this.dropdownIndex = null; // Fecha o dropdown de opções
+    this.openRemove.emit(); // Emite evento para o componente pai abrir o modal
   }
 
-  this.sortData();
-}
+  // Configura a ordenação com base no campo clicado
+  sortBy(field: string) {
+    // Se o campo clicado é o mesmo que o atual, inverte a direção da ordenação
+    if (this.sortField === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      // Se é um novo campo, define-o e usa ordenação ascendente por padrão
+      this.sortField = field;
+      this.sortDirection = 'asc';
+    }
+    // Aplica a ordenação aos dados
+    this.sortData();
+  }
 
-sortData() {
-  this.data.sort((a, b) => {
-    const valA = a[this.sortField]?.toString().toLowerCase() || '';
-    const valB = b[this.sortField]?.toString().toLowerCase() || '';
-    if (valA < valB) return this.sortDirection === 'asc' ? -1 : 1;
-    if (valA > valB) return this.sortDirection === 'asc' ? 1 : -1;
-    return 0;
-  });
-}
+  // Ordena os dados com base em sortField e sortDirection
+  sortData() {
+    this.data.sort((a, b) => {
+      // Converte os valores para strings e minúsculas para comparação
+      const valA = a[this.sortField]?.toString().toLowerCase() || '';
+      const valB = b[this.sortField]?.toString().toLowerCase() || '';
+      // Compara os valores e aplica a direção da ordenação
+      if (valA < valB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valA > valB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }
 
+  // Alterna a visibilidade do dropdown de opções para uma linha específica
+  toggleDropdown(index: number) {
+    this.dropdownIndex = this.dropdownIndex === index ? null : index; // Abre ou fecha o dropdown
+  }
 
-toggleDropdown(index: number) {
-  this.dropdownIndex = this.dropdownIndex === index ? null : index;
-}
+  // Lida com a ação de edição (fechará o dropdown)
+  handleEdit() {
+    this.dropdownIndex = null; // Fecha o dropdown
+    // TODO: Implementar lógica de edição (ex.: emitir evento com this.edit.emit(item))
+  }
 
-handleEdit() {
-  this.dropdownIndex = null;
-  // lógica de edição
-}
+  // Lida com a ação de duplicação (fechará o dropdown)
+  handleDuplicate() {
+    this.dropdownIndex = null; // Fecha o dropdown
+    // TODO: Implementar lógica de duplicação (ex.: emitir evento com this.duplicate.emit(item))
+  }
 
-handleDuplicate() {
-  this.dropdownIndex = null;
-  // lógica de duplicação
-}
+  // Lida com a ação de remoção (fechará o dropdown)
+  handleRemove() {
+    this.dropdownIndex = null; // Fecha o dropdown
+    // TODO: Implementar lógica de remoção (ex.: emitir evento com this.remove.emit(item))
+  }
 
-handleRemove() {
-  this.dropdownIndex = null;
-  // lógica de remoção
-}
+  // Abre o modal de remoção com o tipo especificado
+  openModal(type: 'index' | 'project') {
+    this.modalType = type; // Define o tipo do modal
+    this.showRemoveModal = true; // Exibe o modal
+  }
+
+  // Fecha o modal de remoção
+  closeModal() {
+    this.showRemoveModal = false; // Oculta o modal
+  }
 }

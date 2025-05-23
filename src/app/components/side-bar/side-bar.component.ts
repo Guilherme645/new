@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -17,10 +17,11 @@ interface MenuItem {
 })
 export class SideBarComponent implements OnInit, OnDestroy {
 
-  isExpanded = true;
   activeMenuItem = 0;
   notificationVisible = false;
   private routeSubscription: Subscription | undefined;
+  @Input() isExpanded = true; // 👈 Adicione esta linha
+  @Output() toggle = new EventEmitter<void>();
 
   readonly menuItems: MenuItem[] = [
     { label: 'Início', iconClass: 'inicio-icon', route: '/dashboard', hasNotification: false },
@@ -47,8 +48,9 @@ export class SideBarComponent implements OnInit, OnDestroy {
   }
 
   toggleSidebar(): void {
-    this.isExpanded = !this.isExpanded;
-  }
+  this.isExpanded = !this.isExpanded;
+  this.toggle.emit();
+}
 
   handleMenuClick(index: number, iconClass: string): void {
     if (iconClass === 'notificacoes-icon') {

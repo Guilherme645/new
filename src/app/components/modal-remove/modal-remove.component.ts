@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-remove',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalRemoveComponent {
   @Input() type: 'project' | 'index' = 'project';
+  @Output() onClose = new EventEmitter<void>(); // <- Aqui
 
   inputValue: string = '';
 
@@ -20,5 +21,9 @@ export class ModalRemoveComponent {
 
   isValid(): boolean {
     return (this.isProject && this.inputValue === 'Legislações') || (this.isIndex && this.inputValue.toUpperCase() === 'APAGAR');
+  }
+
+  cancel(): void {
+    this.onClose.emit(); 
   }
 }

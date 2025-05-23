@@ -1,40 +1,44 @@
 <!-- Main Container with Table -->
+<!-- Define o contêiner principal da tabela com layout flexível, altura dinâmica (100vh - 200px), fundo branco, borda cinza e rolagem vertical -->
 <div class="flex flex-row items-start w-full h-[calc(100vh-200px)] bg-white border border-gray-100 rounded-lg overflow-y-auto overflow-x-hidden box-border">
+  <!-- Contêiner interno para centralizar a tabela e garantir largura total -->
   <div class="flex flex-col w-full mx-auto">
+    <!-- Tabela principal com colunas de largura automática e fundo branco -->
     <table class="w-full border-collapse bg-white relative">
-
+      <!-- Cabeçalho da tabela, fixo no topo (sticky) com z-index para sobrepor o corpo -->
       <thead class="sticky top-0 bg-white z-10 border-b border-gray-200">
         <tr>
+          <!-- Primeira coluna do cabeçalho, reservada para ícones de expansão (espaço vazio para coleções) -->
           <th class="w-[91px] p-2 text-center align-middle">
-            <div class="h-[26px]"></div>
+            <div class="h-[26px]"></div> <!-- Espaço reservado para alinhamento vertical -->
           </th>
+          <!-- Coluna "Nome do Projeto/Coleção" com funcionalidade de ordenação -->
           <th class="p-2 align-middle max-w-[300px] break-words" (click)="sortBy('name')">
+            <!-- Container flexível para alinhar texto e ícone de ordenação -->
             <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer">
+              <!-- Exibe dinamicamente o título com base no tipo (projeto ou coleção) -->
               {{ type === 'project' ? 'NOME DO PROJETO' : 'NOME DA COLEÇÃO' }}
+              <!-- Espaçamento para alinhar o ícone de ordenação -->
               <div class="ml-[149px]">
+                <!-- Contêiner para o ícone de ordenação e tooltip -->
                 <div class="relative group flex items-center justify-center w-8 h-8">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_209_11987)">
-<mask id="path-1-inside-1_209_11987" fill="white">
-<path d="M2 5C2 2.79086 3.79086 1 6 1H22C24.2091 1 26 2.79086 26 5V21C26 23.2091 24.2091 25 22 25H6C3.79086 25 2 23.2091 2 21V5Z"/>
-</mask>
-<path d="M2 5C2 2.79086 3.79086 1 6 1H22C24.2091 1 26 2.79086 26 5V21C26 23.2091 24.2091 25 22 25H6C3.79086 25 2 23.2091 2 21V5Z" fill="white"/>
-<path d="M6 1V1.8H22V1V0.2H6V1ZM26 5H25.2V21H26H26.8V5H26ZM22 25V24.2H6V25V25.8H22V25ZM2 21H2.8V5H2H1.2V21H2ZM6 25V24.2C4.23269 24.2 2.8 22.7673 2.8 21H2H1.2C1.2 23.651 3.34903 25.8 6 25.8V25ZM26 21H25.2C25.2 22.7673 23.7673 24.2 22 24.2V25V25.8C24.651 25.8 26.8 23.651 26.8 21H26ZM22 1V1.8C23.7673 1.8 25.2 3.23269 25.2 5H26H26.8C26.8 2.34903 24.651 0.2 22 0.2V1ZM6 1V0.2C3.34903 0.2 1.2 2.34903 1.2 5H2H2.8C2.8 3.23269 4.23269 1.8 6 1.8V1Z" fill="#E9EAEB" mask="url(#path-1-inside-1_209_11987)"/>
-<path d="M13.3333 15.6666L11.3333 17.6666M11.3333 17.6666L9.33325 15.6666M11.3333 17.6666V8.33325M14.6666 10.3333L16.6666 8.33325M16.6666 8.33325L18.6666 10.3333M16.6666 8.33325V17.6666" stroke="#535862" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<filter id="filter0_d_209_11987" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.203922 0 0 0 0 0.211765 0 0 0 0 0.211765 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_209_11987"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_209_11987" result="shape"/>
-</filter>
-</defs>
-</svg>
-
+                  <!-- Ícone SVG para ordenação, clique aciona sortBy('name') -->
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="cursor-pointer"
+                  >
+                    <path
+                      d="M7.33301 10.6666L5.33301 12.6666M5.33301 12.6666L3.33301 10.6666M5.33301 12.6666V3.33325M8.66634 5.33325L10.6663 3.33325M10.6663 3.33325L12.6663 5.33325M10.6663 3.33325V12.6666"
+                      stroke="#535862"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <!-- Tooltip para "Ordenação" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-order conforme padrão) -->
                   <div class="absolute top-0 left-[-10px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
                     <app-tooltip text="Ordenação"></app-tooltip>
                   </div>
@@ -42,54 +46,69 @@
               </div>
             </div>
           </th>
+          <!-- Coluna "Descrição" com funcionalidade de ordenação -->
           <th class="p-2 align-middle max-w-[300px] break-words" (click)="sortBy('description')">
+            <!-- Container flexível para alinhar texto e ícone de ordenação -->
             <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer">
               DESCRIÇÃO
-              <div class="ml-[212px]">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_209_11987)">
-<mask id="path-1-inside-1_209_11987" fill="white">
-<path d="M2 5C2 2.79086 3.79086 1 6 1H22C24.2091 1 26 2.79086 26 5V21C26 23.2091 24.2091 25 22 25H6C3.79086 25 2 23.2091 2 21V5Z"/>
-</mask>
-<path d="M2 5C2 2.79086 3.79086 1 6 1H22C24.2091 1 26 2.79086 26 5V21C26 23.2091 24.2091 25 22 25H6C3.79086 25 2 23.2091 2 21V5Z" fill="white"/>
-<path d="M6 1V1.8H22V1V0.2H6V1ZM26 5H25.2V21H26H26.8V5H26ZM22 25V24.2H6V25V25.8H22V25ZM2 21H2.8V5H2H1.2V21H2ZM6 25V24.2C4.23269 24.2 2.8 22.7673 2.8 21H2H1.2C1.2 23.651 3.34903 25.8 6 25.8V25ZM26 21H25.2C25.2 22.7673 23.7673 24.2 22 24.2V25V25.8C24.651 25.8 26.8 23.651 26.8 21H26ZM22 1V1.8C23.7673 1.8 25.2 3.23269 25.2 5H26H26.8C26.8 2.34903 24.651 0.2 22 0.2V1ZM6 1V0.2C3.34903 0.2 1.2 2.34903 1.2 5H2H2.8C2.8 3.23269 4.23269 1.8 6 1.8V1Z" fill="#E9EAEB" mask="url(#path-1-inside-1_209_11987)"/>
-<path d="M13.3333 15.6666L11.3333 17.6666M11.3333 17.6666L9.33325 15.6666M11.3333 17.6666V8.33325M14.6666 10.3333L16.6666 8.33325M16.6666 8.33325L18.6666 10.3333M16.6666 8.33325V17.6666" stroke="#535862" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<filter id="filter0_d_209_11987" x="0" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.203922 0 0 0 0 0.211765 0 0 0 0 0.211765 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_209_11987"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_209_11987" result="shape"/>
-</filter>
-</defs>
-</svg>
-
+              <!-- Espaçamento para alinhar o ícone de ordenação -->
+              <div class="ml-[232px]">
+                <!-- Contêiner para o ícone de ordenação e tooltip -->
+                <div class="relative group flex items-center justify-center w-8 h-8">
+                  <!-- Ícone SVG para ordenação, clique aciona sortBy('description') -->
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="cursor-pointer"
+                  >
+                    <path
+                      d="M7.33301 10.6666L5.33301 12.6666M5.33301 12.6666L3.33301 10.6666M5.33301 12.6666V3.33325M8.66634 5.33325L10.6663 3.33325M10.6663 3.33325L12.6663 5.33325M10.6663 3.33325V12.6666"
+                      stroke="#535862"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <!-- Tooltip para "Ordenação" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-order conforme padrão) -->
+                  <!-- TODO: Implementar <span class="tooltip-order absolute top-full left-1/2 transform -translate-x-1/2 ...">Ordenação</span> -->
+                  <div class="absolute top-0 left-[-10px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <app-tooltip text="Ordenação"></app-tooltip>
+                  </div>
+                </div>
               </div>
             </div>
           </th>
+          <!-- Coluna "Indexação" com dropdown -->
           <th class="p-2 align-middle max-w-[401px] break-words">
+            <!-- Container flexível para alinhar texto e dropdown -->
             <div class="flex items-center gap-1 mr-[52px] text-xs font-semibold text-gray-600 cursor-pointer">
               INDEXAÇÃO
+              <!-- Espaçamento para alinhar o dropdown -->
               <div class="ml-[205px]">
+                <!-- Componente de dropdown para opções de indexação -->
                 <app-dropdown></app-dropdown>
               </div>
             </div>
           </th>
+          <!-- Coluna reservada para ações (ex.: opções adicionais) -->
           <th class="w-[47px] p-0 text-center align-middle"></th>
         </tr>
       </thead>
+      <!-- Corpo da tabela, renderiza linhas dinamicamente -->
       <tbody class="relative">
+        <!-- Iteração sobre os dados (projetos ou coleções) -->
         <ng-container *ngFor="let item of data; let i = index">
           <tr>
+            <!-- Primeira coluna: ícones de expansão e pasta (apenas para projetos) -->
             <td class="p-2 text-center align-middle">
+              <!-- Condicional para projetos: exibe ícones de expansão e pasta -->
               <div *ngIf="type === 'project'" class="flex items-center gap-2 justify-center cursor-pointer" (click)="toggleItem(i)">
+                <!-- Ícone de expansão (seta), rotaciona quando expandido -->
                 <svg
                   class="shrink-0 transition-transform duration-200"
-                  [ngClass]="{ 'rotate-90': item.expanded }"
+                  [ngClass]="{ 'rotate-180': item.expanded }"
                   width="10"
                   height="6"
                   viewBox="0 0 10 6"
@@ -98,7 +117,9 @@
                 >
                   <path d="M9 1L5 5L1 1" stroke="#717680" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
+                <!-- Contêiner para ícone de pasta e tooltip -->
                 <div class="relative group inline-block">
+                  <!-- Ícone SVG representando uma pasta -->
                   <svg
                     class="shrink-0 cursor-pointer"
                     width="34"
@@ -114,25 +135,42 @@
                       stroke-width="0.8"
                     />
                   </svg>
+                  <!-- Tooltip para "Ver coleções do projeto" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-collections conforme padrão) -->
+                  <!-- TODO: Implementar <span class="tooltip-collections absolute top-full left-1/2 transform -translate-x-1/2 ...">Ver coleções do projeto</span> -->
                   <div class="absolute top-0 left-[52px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
                     <app-tooltip text="Ver coleções do projeto"></app-tooltip>
                   </div>
                 </div>
               </div>
+              <!-- Espaço reservado para coleções (sem ícones) -->
               <div *ngIf="type === 'collection'" class="w-[34px] h-[26px]"></div>
             </td>
+            <!-- Coluna para nome do projeto/coleção -->
             <td class="p-2 align-middle max-w-[300px] break-words">
+              <!-- Exibe o nome ou título do item -->
               <div class="text-sm text-gray-900 py-2">{{ item.name || item.title }}</div>
             </td>
+            <!-- Coluna para descrição -->
             <td class="p-2 align-middle max-w-[300px] break-words">
+              <!-- Exibe a descrição do item -->
               <div class="text-sm text-gray-900 py-2">{{ item.description }}</div>
             </td>
+            <!-- Coluna para barra de progresso de indexação -->
             <td class="p-2 align-middle max-w-[401px] break-words">
-              <app-progress-bar [state]="item.progressState" [percent]="item.progressPercent"></app-progress-bar>
+              <!-- Componente de barra de progresso, exibe estado e porcentagem -->
+              <app-progress-bar
+                [state]="item.progressState"
+                [percent]="item.progressPercent"
+                (openRemoveProject)="emitOpenRemoveProject()"
+              ></app-progress-bar>
             </td>
+            <!-- Coluna para ações (botão de opções) -->
             <td class="p-0 text-center align-middle relative">
+              <!-- Contêiner para botão de opções e dropdown -->
               <div class="inline-block group">
+                <!-- Botão para abrir o dropdown de opções -->
                 <button (click)="toggleDropdown(i)" class="h-[26px] mt-5 cursor-pointer">
+                  <!-- Ícone SVG de três pontos (menu) -->
                   <svg width="16" height="4" viewBox="0 0 16 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M13 2C13 2.55228 13.4477 3 14 3C14.5523 3 15 2.55228 15 2C15 1.44772 14.5523 1 14 1C13.4477 1 13 1.44772 13 2Z"
@@ -157,26 +195,32 @@
                     />
                   </svg>
                 </button>
+                <!-- Tooltip para "Mais opções" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-options conforme padrão) -->
                 <div
-                  class="absolute bottom-full left-[-15px] -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity z-50"
+                  class="absolute bottom-full left-[-25px] mt-[-5px] -translate-x-1/2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity z-50"
                 >
                   <app-tooltip text="Mais opções"></app-tooltip>
                 </div>
+                <!-- Dropdown de opções, exibido condicionalmente -->
                 <app-option-dropdown
                   *ngIf="dropdownIndex === i"
                   class="absolute mt-2 z-[9999] bg-white shadow-lg rounded-md min-w-[180px]"
                   (edit)="handleEdit()"
                   (duplicate)="handleDuplicate()"
                   (remove)="handleRemove()"
-                    (openRemove)="emitOpenRemove()"
+                  (openRemove)="emitOpenRemove()"
                 ></app-option-dropdown>
               </div>
             </td>
           </tr>
+          <!-- Linha expansível para subcoleções (apenas para projetos) -->
           <tr *ngIf="item.expanded && type === 'project'" class="bg-gray-50">
+            <!-- Coluna expansível que ocupa toda a largura da tabela -->
             <td colspan="5" class="p-0">
+              <!-- Contêiner para árvore de subcoleções -->
               <div class="block w-full h-auto box-border overflow-hidden">
                 <div class="overflow-x-hidden">
+                  <!-- Componente que renderiza a árvore de subcoleções -->
                   <app-collection-tree [data]="item.subcollections || []"></app-collection-tree>
                 </div>
               </div>
@@ -188,23 +232,31 @@
   </div>
 </div>
 
-<!-- Pagination aligned below the table (not fixed) -->
-<div class="mt-4 px-4 flex justify-between items-center ml-1 w-full max-w-[1256px] mx-auto bg-white border-t border-gray-100 py-2">
+<!-- Paginação alinhada abaixo da tabela -->
+<div
+  class="mt-4 w-full px-4 sm:px-6 lg:px-8 py-2 bg-white flex flex-wrap gap-2 justify-between items-center"
+>
+  <!-- Informações sobre a quantidade de itens exibidos -->
   <div class="text-sm text-gray-600">
     Exibindo {{ data.length }} de {{ totalItems }} {{ type === 'project' ? 'projetos' : 'coleções' }}
   </div>
+  <!-- Contêiner para controles de navegação de página -->
   <div class="flex items-center gap-2">
+    <!-- Botão para página anterior, exibido condicionalmente -->
     <ng-container *ngIf="currentPage > 1; else leftSpacer">
       <button aria-label="Página anterior" class="p-1 bg-none border-none cursor-pointer" (click)="previousPage()">
+        <!-- Ícone SVG para página anterior -->
         <svg width="16" height="17" viewBox="0 0 16 17" fill="none">
           <path d="M9.33333 11.6271L6.66666 8.96043L9.33333 6.29376" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
     </ng-container>
+    <!-- Espaço reservado quando não há página anterior -->
     <ng-template #leftSpacer>
       <div class="w-4 h-[17px]"></div>
     </ng-template>
 
+    <!-- Exibição da página atual e total de páginas -->
     <div class="flex items-center gap-1">
       <div class="border border-gray-300 rounded-md px-2 py-1">
         <div class="text-sm text-gray-900">{{ currentPage }}</div>
@@ -212,13 +264,16 @@
       <span class="text-sm text-gray-600">de {{ totalPages }} páginas</span>
     </div>
 
+    <!-- Botão para próxima página, exibido condicionalmente -->
     <ng-container *ngIf="currentPage < totalPages; else rightSpacer">
       <button aria-label="Próxima página" class="p-1 bg-none border-none cursor-pointer" (click)="nextPage()">
+        <!-- Ícone SVG para próxima página -->
         <svg width="16" height="17" viewBox="0 0 16 17" fill="none">
           <path d="M6.66667 6.29376L9.33334 8.96043L6.66667 11.6271" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
     </ng-container>
+    <!-- Espaço reservado quando não há próxima página -->
     <ng-template #rightSpacer>
       <div class="w-4 h-[17px]"></div>
     </ng-template>

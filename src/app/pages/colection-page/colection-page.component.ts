@@ -13,6 +13,10 @@ export class ColectionPageComponent implements OnInit {
   totalItems: number = 0;
   totalPages: number = 1;
   currentPage: number = 1;
+showRemoveModal = false;
+  exibirModal: boolean = false;
+modalType: 'index' | 'project' = 'index';
+isSidebarExpanded = true;
 
   ngOnInit() {
     this.loadPage(this.currentPage);
@@ -42,4 +46,18 @@ export class ColectionPageComponent implements OnInit {
       this.loadPage(page);
     }
   }
+
+   closeModal() {
+  this.showRemoveModal = false;
+}
+
+
+toggleSidebar(): void {
+  this.isSidebarExpanded = !this.isSidebarExpanded;
+}
+
+
+fecharModal() {
+  this.showRemoveModal = false;
+}
 }

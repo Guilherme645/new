@@ -1,7 +1,10 @@
-<div class="page-wrapper">
-  <app-side-bar></app-side-bar>
+<div class="page-wrapper flex">
+  <app-side-bar
+    [isExpanded]="isSidebarExpanded"
+    (toggle)="toggleSidebar()"
+  ></app-side-bar>
 
-  <div class="main-content">
+  <div class="main-content w-full transition-all duration-300" [ngStyle]="{ 'margin-left.px': isSidebarExpanded ? 254 : 88 }">
     <app-header-page [type]="'project'"></app-header-page>
 
     <div class="content-wrapper">
@@ -12,15 +15,15 @@
         [totalPages]="totalPages"
         [currentPage]="currentPage"
         (pageChange)="onPageChange($event)"
-  (openRemove)="showRemoveModal = true"
-        
+        (openRemoveTyped)="openModal($event)" 
+        (openRemove)="showRemoveModal = true"
       ></app-tabela>
     </div>
   </div>
 </div>
-<div *ngIf="showRemoveModal" class="modal"></div>
-<app-modal-remove
-  *ngIf="showRemoveModal"
-  [type]="'index'"
-  (clickOutside)="closeModal()"
-></app-modal-remove>
+<div *ngIf="showRemoveModal" class="modal flex items-center justify-center">
+  <app-modal-remove
+    [type]="modalType"
+      (onClose)="fecharModal()"
+  ></app-modal-remove>
+</div>

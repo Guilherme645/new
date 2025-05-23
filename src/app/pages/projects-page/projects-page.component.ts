@@ -12,6 +12,9 @@ export class ProjectsPageComponent implements OnInit {
   totalPages: number = 1;
   currentPage: number = 1;
 showRemoveModal = false;
+  exibirModal: boolean = false;
+modalType: 'index' | 'project' = 'index';
+isSidebarExpanded = true;
 
   constructor(private projectsService: ProjectsService) {}
 
@@ -27,7 +30,7 @@ showRemoveModal = false;
           expanded: false,
           subcollections: [
             { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'complete', progressPercent: 100 },
-            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pause', progressPercent: 14 }
+            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pause', progressPercent: 8 }
           ]
         }));
         this.totalItems = data.totalItems;
@@ -44,7 +47,18 @@ showRemoveModal = false;
     }
   }
 
-  closeModal() {
+openModal(type: 'index' | 'project') {
+  this.modalType = type;
+  this.showRemoveModal = true;
+}
+
+toggleSidebar(): void {
+  this.isSidebarExpanded = !this.isSidebarExpanded;
+}
+
+
+fecharModal() {
   this.showRemoveModal = false;
 }
+
 }

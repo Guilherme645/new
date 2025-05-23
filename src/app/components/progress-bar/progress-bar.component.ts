@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
@@ -9,8 +9,10 @@ export class ProgressBarComponent implements OnInit {
   @Input() state: 'default' | 'active' | 'complete' | 'error' | 'pause' = 'default';
   @Input() percent: number = 0;
 
+  @Output() openRemoveProject = new EventEmitter<void>(); // 👈 Emitimos para o pai
+
   get fillWidth(): string {
-    const totalWidth = 148; // Total width of the progress bar in pixels
+    const totalWidth = 148;
     return `${(this.percent / 100) * totalWidth}px`;
   }
 
@@ -33,7 +35,9 @@ export class ProgressBarComponent implements OnInit {
     return this.state === 'complete';
   }
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() { }
+  handleTrashClick() {
+    this.openRemoveProject.emit(); // 👈 envia para o pai
+  }
 }
