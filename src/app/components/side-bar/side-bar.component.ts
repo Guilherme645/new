@@ -22,7 +22,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription | undefined;
   @Input() isExpanded = true; // 👈 Adicione esta linha
   @Output() toggle = new EventEmitter<void>();
-
+@Output() toggleNotification = new EventEmitter<void>();
   readonly menuItems: MenuItem[] = [
     { label: 'Início', iconClass: 'inicio-icon', route: '/dashboard', hasNotification: false },
     { label: 'Projetos', iconClass: 'projetos-icon', route: '/novo-projeto', hasNotification: false },
@@ -66,9 +66,10 @@ export class SideBarComponent implements OnInit, OnDestroy {
     this.notificationVisible = false;
   }
 
-  toggleNotifications(): void {
-    this.notificationVisible = !this.notificationVisible;
-  }
+ toggleNotifications(): void {
+  this.notificationVisible = !this.notificationVisible;
+  this.toggleNotification.emit(); 
+}
 
   navigateTo(route: string | null): void {
     if (route) {
@@ -89,6 +90,5 @@ private setActiveMenuItemByRoute(currentUrl: string): void {
 
   this.activeMenuItem = foundIndex !== -1 ? foundIndex : 0;
 }
-
 
 }

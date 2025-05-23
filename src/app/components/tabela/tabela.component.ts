@@ -61,15 +61,13 @@ showRemoveModal = false;
   }
 
   // Configura a ordenação com base no campo clicado
-  sortBy(field: string) {
-    // Se o campo clicado é o mesmo que o atual, inverte a direção da ordenação
-    if (this.sortField === field) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      // Se é um novo campo, define-o e usa ordenação ascendente por padrão
-      this.sortField = field;
-      this.sortDirection = 'asc';
-    }
+sortBy(field: string) {
+  if (this.sortField === field) {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  } else {
+    this.sortField = field;
+    this.sortDirection = 'asc';
+  }
     // Aplica a ordenação aos dados
     this.sortData();
   }

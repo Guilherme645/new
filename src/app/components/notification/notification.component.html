@@ -1,9 +1,10 @@
-<div class="h-full bg-white shadow-lg p-4 overflow-y-auto overflow-x-hidden border-l border-gray-200">
+<div class="h-full bg-white shadow-lg p-0 overflow-y-auto overflow-x-hidden border-l border-gray-200">
   <!-- Cabeçalho estilizado -->
-  <div
-    class="flex justify-between items-center px-5 pt-8 pb-5 border-b border-[#F5F5F5]"
-    style="width: 400px; height: 100px;"
-  >
+<div
+  class="flex justify-between items-center px-5 pt-8 pb-5 border-b border-[#F5F5F5] min-h-[100px]"
+  style="width: 400px;"
+>
+
     <!-- Título -->
     <div
       class="text-[#535862] text-[24px] font-semibold leading-[120%] tracking-[-1.4px] font-['DM Sans']"
@@ -13,7 +14,7 @@
 
     <!-- Botão de fechar -->
     <button
-      class="flex justify-center items-center w-12 h-12 border border-gray-300 shadow-sm rounded cursor-pointer"
+      class="flex justify-center items-center  w-12 h-12 border border-gray-300 shadow-sm rounded cursor-pointer"
       aria-label="Fechar painel"
       (click)="onClose()"
     >
@@ -25,7 +26,7 @@
   </div>
 
   <!-- Lista de cards -->
-  <ng-container *ngFor="let notification of notifications">
+  <ng-container  *ngFor="let notification of notifications">
     <app-notification-card
       [tipo]="notification.tipo"
       [titulo]="notification.titulo"

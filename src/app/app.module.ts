@@ -35,6 +35,10 @@ import { NotificationComponent } from './components/notification/notification.co
 import { NotificationCardComponent } from './components/notification-card/notification-card.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { PanelModule } from 'primeng/panel';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -65,7 +69,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
   NotificationComponent,
   NotificationCardComponent,
   ToastComponent,
-  DashboardPageComponent
+  DashboardPageComponent,
+  
 
     
   ],
@@ -79,7 +84,11 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     HttpClientModule,
     ReactiveFormsModule,
     MenuModule,
-    FormsModule
+    FormsModule,
+    SidebarModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    PanelMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

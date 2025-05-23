@@ -15,6 +15,7 @@ showRemoveModal = false;
   exibirModal: boolean = false;
 modalType: 'index' | 'project' = 'index';
 isSidebarExpanded = true;
+notificationVisible = false;
 
   constructor(private projectsService: ProjectsService) {}
 
@@ -59,6 +60,10 @@ toggleSidebar(): void {
 
 fecharModal() {
   this.showRemoveModal = false;
+}
+
+handleToggleNotification() {
+  this.notificationVisible = !this.notificationVisible;
 }
 
 }

@@ -11,10 +11,17 @@
     (click)="toggleSidebar()"
     data-hs-overlay="toggle"
   >
-    <div class="w-6 h-6 flex items-center justify-center rounded-md border border-[#E9EAEB] bg-white shadow-sm">
-      <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.6665 8.24175V11.807C2.6665 12.5538 2.6665 12.9274 2.81183 13.2126C2.93966 13.4635 3.14349 13.6673 3.39437 13.7951C3.67931 13.9403 4.0525 13.9403 4.79778 13.9403H11.2019C11.9472 13.9403 12.3198 13.9403 12.6048 13.7951C12.8556 13.6673 13.0602 13.4635 13.188 13.2126C13.3332 12.9277 13.3332 12.5546 13.3332 11.8094V8.24175C13.3332 7.88553 13.3329 7.70731 13.2896 7.54155C13.2512 7.39466 13.1882 7.25565 13.1029 7.13003C13.0067 6.98828 12.8729 6.87073 12.6048 6.63615L9.40479 3.83615C8.90704 3.40063 8.65818 3.18298 8.37809 3.10015C8.1313 3.02716 7.86824 3.02716 7.62145 3.10015C7.34158 3.18291 7.09307 3.40036 6.59608 3.83522L3.39502 6.63615C3.12693 6.87073 2.9932 6.98828 2.89697 7.13003C2.8117 7.25565 2.7482 7.39466 2.70982 7.54155C2.6665 7.70732 2.6665 7.88552 2.6665 8.24175Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    
+  <div  class="w-6 h-6 flex items-center justify-center rounded-md border border-[#E9EAEB] bg-white shadow-sm">
+     <svg *ngIf="!isExpanded" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.66663 5.94033L9.33329 8.60699L6.66663 11.2737" stroke="#15181F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+ <svg *ngIf="isExpanded" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33329 11.2736L6.66663 8.60697L9.33329 5.94031" stroke="#15181F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  <div class="absolute top-0 left-[52px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <app-tooltip text="Ver coleções do projeto"></app-tooltip>
+                  </div>
     </div>
   </button>
 
@@ -159,10 +166,3 @@
   </div>
 </div>
 
-<app-notification
-  *ngIf="notificationVisible"
-  class="fixed top-0 z-40 h-full transition-all duration-300"
-  [style.left]="isExpanded ? '254px' : '88px'"
-  [style.width]="'420px'"
-  (close)="notificationVisible = false"
-></app-notification>

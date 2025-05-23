@@ -13,77 +13,154 @@
             <div class="h-[26px]"></div> <!-- Espaço reservado para alinhamento vertical -->
           </th>
           <!-- Coluna "Nome do Projeto/Coleção" com funcionalidade de ordenação -->
-          <th class="p-2 align-middle max-w-[300px] break-words" (click)="sortBy('name')">
-            <!-- Container flexível para alinhar texto e ícone de ordenação -->
-            <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer">
-              <!-- Exibe dinamicamente o título com base no tipo (projeto ou coleção) -->
-              {{ type === 'project' ? 'NOME DO PROJETO' : 'NOME DA COLEÇÃO' }}
-              <!-- Espaçamento para alinhar o ícone de ordenação -->
-              <div class="ml-[149px]">
-                <!-- Contêiner para o ícone de ordenação e tooltip -->
-                <div class="relative group flex items-center justify-center w-8 h-8">
-                  <!-- Ícone SVG para ordenação, clique aciona sortBy('name') -->
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="cursor-pointer"
-                  >
-                    <path
-                      d="M7.33301 10.6666L5.33301 12.6666M5.33301 12.6666L3.33301 10.6666M5.33301 12.6666V3.33325M8.66634 5.33325L10.6663 3.33325M10.6663 3.33325L12.6663 5.33325M10.6663 3.33325V12.6666"
-                      stroke="#535862"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <!-- Tooltip para "Ordenação" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-order conforme padrão) -->
-                  <div class="absolute top-0 left-[-10px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <app-tooltip text="Ordenação"></app-tooltip>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <!-- Coluna "Descrição" com funcionalidade de ordenação -->
-          <th class="p-2 align-middle max-w-[300px] break-words" (click)="sortBy('description')">
-            <!-- Container flexível para alinhar texto e ícone de ordenação -->
-            <div class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer">
-              DESCRIÇÃO
-              <!-- Espaçamento para alinhar o ícone de ordenação -->
-              <div class="ml-[232px]">
-                <!-- Contêiner para o ícone de ordenação e tooltip -->
-                <div class="relative group flex items-center justify-center w-8 h-8">
-                  <!-- Ícone SVG para ordenação, clique aciona sortBy('description') -->
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="cursor-pointer"
-                  >
-                    <path
-                      d="M7.33301 10.6666L5.33301 12.6666M5.33301 12.6666L3.33301 10.6666M5.33301 12.6666V3.33325M8.66634 5.33325L10.6663 3.33325M10.6663 3.33325L12.6663 5.33325M10.6663 3.33325V12.6666"
-                      stroke="#535862"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <!-- Tooltip para "Ordenação" (ATENÇÃO: substituir <app-tooltip> por span.tooltip-order conforme padrão) -->
-                  <!-- TODO: Implementar <span class="tooltip-order absolute top-full left-1/2 transform -translate-x-1/2 ...">Ordenação</span> -->
-                  <div class="absolute top-0 left-[-10px] -translate-x-1/2 mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <app-tooltip text="Ordenação"></app-tooltip>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
+      <th class="p-2 align-middle w-[500px] break-words">
+  <div
+    class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer"
+    (click)="sortBy('name')"
+  >
+    {{ type === 'project' ? 'NOME DO PROJETO' : 'NOME DA COLEÇÃO' }}
+    <div class="ml-[119px]">
+      <div
+        class="relative group flex items-center justify-center w-6 h-6 rounded-[4px] shadow-sm transition-all"
+        [ngClass]="{
+          'bg-white border border-[#E9EAEB]': sortField !== 'name',
+          'bg-[#D6DBF7] border border-[#314CD9]': sortField === 'name'
+        }"
+      >
+        <!-- Ícone padrão (não está ordenando por 'name') -->
+        <ng-container *ngIf="sortField !== 'name'; else activeSort">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M7.33301 10.6666L5.33301 12.6666M5.33301 12.6666L3.33301 10.6666M5.33301 12.6666V3.33325M8.66634 5.33325L10.6663 3.33325M10.6663 3.33325L12.6663 5.33325M10.6663 3.33325V12.6666"
+              stroke="#535862"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </ng-container>
+
+        <!-- Ícones quando sortField === 'name' -->
+        <ng-template #activeSort>
+          <ng-container *ngIf="sortDirection === 'asc'; else descIcon">
+            <!-- Ícone ASC -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M2.66663 11.3334H10.6666M2.66663 8.00004H8.66663M2.66663 4.66671H6.66663M12 8.66671V3.33337M12 3.33337L14 5.33337M12 3.33337L9.99996 5.33337"
+                stroke="#314CD9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </ng-container>
+
+          <!-- Ícone DESC -->
+          <ng-template #descIcon>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.66663 11.3334H6.66663M2.66663 8.00002H8.66663M12 7.33335V12.6667M12 12.6667L14 10.6667M12 12.6667L9.99996 10.6667M2.66663 4.66669H10.6666"
+                stroke="#314CD9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </ng-template>
+        </ng-template>
+
+        <!-- Tooltip -->
+        <span
+          class="tooltip-order absolute top-full left-1/2 transform -translate-x-1/2 mt-1 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          Ordenação
+        </span>
+      </div>
+    </div>
+  </div>
+</th>
+
+<!-- Coluna "Descrição" com funcionalidade de ordenação -->
+<th class="p-2 align-middle max-w-[300px] break-words">
+  <div
+    class="flex items-center gap-1 text-xs font-semibold text-gray-600 cursor-pointer"
+    (click)="sortBy('description')"
+  >
+    DESCRIÇÃO
+    <div class="ml-[122px]">
+      <div
+        class="relative group flex items-center justify-center w-6 h-6 rounded-[4px] shadow-sm transition-all"
+        [ngClass]="{
+          'bg-white border border-[#E9EAEB]': sortField !== 'description',
+          'bg-[#D6DBF7] border border-[#314CD9]': sortField === 'description'
+        }"
+      >
+        <!-- Ícone dinâmico -->
+        <ng-container *ngIf="sortField !== 'description'; else activeSortDesc">
+          <!-- Ícone padrão (sem ordenação ativa) -->
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M7.33337 10.6666L5.33337 12.6666M5.33337 12.6666L3.33337 10.6666M5.33337 12.6666V3.33325M8.66671 5.33325L10.6667 3.33325M10.6667 3.33325L12.6667 5.33325M10.6667 3.33325V12.6666"
+              stroke="#535862"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </ng-container>
+
+        <!-- Ícones para ordenação ativa -->
+        <ng-template #activeSortDesc>
+          <ng-container *ngIf="sortDirection === 'asc'; else descIcon">
+            <!-- Ícone ASC -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M2.66663 11.3334H10.6666M2.66663 8.00004H8.66663M2.66663 4.66671H6.66663M12 8.66671V3.33337M12 3.33337L14 5.33337M12 3.33337L9.99996 5.33337"
+                stroke="#314CD9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </ng-container>
+
+          <!-- Ícone DESC -->
+          <ng-template #descIcon>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.66663 11.3334H6.66663M2.66663 8.00002H8.66663M12 7.33335V12.6667M12 12.6667L14 10.6667M12 12.6667L9.99996 10.6667M2.66663 4.66669H10.6666"
+                stroke="#314CD9"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </ng-template>
+        </ng-template>
+
+        <!-- Tooltip -->
+        <span
+          class="tooltip-order absolute top-full left-1/2 transform -translate-x-1/2 mt-1 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          Ordenação
+        </span>
+      </div>
+    </div>
+  </div>
+</th>
+
+
+
           <!-- Coluna "Indexação" com dropdown -->
           <th class="p-2 align-middle max-w-[401px] break-words">
             <!-- Container flexível para alinhar texto e dropdown -->
-            <div class="flex items-center gap-1 mr-[52px] text-xs font-semibold text-gray-600 cursor-pointer">
+            <div class="flex items-center gap-1 ml-[22px] text-xs font-semibold text-gray-600 cursor-pointer">
               INDEXAÇÃO
               <!-- Espaçamento para alinhar o dropdown -->
               <div class="ml-[205px]">
@@ -151,7 +228,7 @@
               <div class="text-sm text-gray-900 py-2">{{ item.name || item.title }}</div>
             </td>
             <!-- Coluna para descrição -->
-            <td class="p-2 align-middle max-w-[300px] break-words">
+        <td class="w-[313px] text-left px-2 py-3 text-sm text-gray-900 align-middle box-border">
               <!-- Exibe a descrição do item -->
               <div class="text-sm text-gray-900 py-2">{{ item.description }}</div>
             </td>

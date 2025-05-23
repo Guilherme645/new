@@ -22,7 +22,7 @@ export class NotificationService {
     {
       tipo: 'success',
       titulo: 'A indexação foi bem sucedida',
-      descricao: 'A indexação da coleção: <strong>Documentos Sigilosos</strong> foi finalizada com sucesso.',
+      descricao: 'A indexação da coleção:Documentos Sigilosos foi finalizada com sucesso.',
       data: '07/05/25 às 13:52'
     },
     {
