@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-collection-tree',
-  templateUrl: './collection-tree.component.html',
-  styleUrls: ['./collection-tree.component.css']
+    selector: 'app-collection-tree',
+    templateUrl: './collection-tree.component.html',
+    styleUrls: ['./collection-tree.component.css'],
+    standalone: false
 })
 export class CollectionTreeComponent implements OnInit {
   @Input() data: any[] = [];

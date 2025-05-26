@@ -1,9 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-remove',
-  templateUrl: './modal-remove.component.html',
-  styleUrls: ['./modal-remove.component.css']
+    selector: 'app-modal-remove',
+    templateUrl: './modal-remove.component.html',
+    styleUrls: ['./modal-remove.component.css'],
+    standalone: false
 })
 export class ModalRemoveComponent {
   @Input() type: 'project' | 'index' = 'project';

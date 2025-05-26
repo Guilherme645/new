@@ -3,8 +3,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NotificationService, Notification } from 'src/app/services/notification.service';
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html'
+    selector: 'app-notification',
+    templateUrl: './notification.component.html',
+    standalone: false
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];

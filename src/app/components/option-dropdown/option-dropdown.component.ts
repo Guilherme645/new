@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-option-dropdown',
-  templateUrl: './option-dropdown.component.html',
+    selector: 'app-option-dropdown',
+    templateUrl: './option-dropdown.component.html',
+    standalone: false
 })
 export class OptionDropdownComponent {
   @Output() edit = new EventEmitter<void>();

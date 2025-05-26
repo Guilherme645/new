@@ -3,9 +3,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
-  selector: 'app-header-page',
-  templateUrl: './header-page.component.html',
-  styleUrls: ['./header-page.component.css']
+    selector: 'app-header-page',
+    templateUrl: './header-page.component.html',
+    styleUrls: ['./header-page.component.css'],
+    standalone: false
 })
 export class HeaderPageComponent implements OnInit {
     @Input() type: 'project' | 'collection' = 'project';

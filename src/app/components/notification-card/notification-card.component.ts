@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-notification-card',
-  templateUrl: './notification-card.component.html',
+    selector: 'app-notification-card',
+    templateUrl: './notification-card.component.html',
+    standalone: false
 })
 export class NotificationCardComponent {
   @Input() tipo: 'info' | 'success' | 'error' = 'info';

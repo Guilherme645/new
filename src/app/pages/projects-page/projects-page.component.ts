@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Project, ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
-  selector: 'app-projects-page',
-  templateUrl: './projects-page.component.html',
-  styleUrls: ['./projects-page.component.css']
+    selector: 'app-projects-page',
+    templateUrl: './projects-page.component.html',
+    styleUrls: ['./projects-page.component.css'],
+    standalone: false
 })
 export class ProjectsPageComponent implements OnInit {
   projects: any[] = [];

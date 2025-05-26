@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-tabela',
-  templateUrl: './tabela.component.html',
-  styleUrls: ['./tabela.component.css']
+    selector: 'app-tabela',
+    templateUrl: './tabela.component.html',
+    styleUrls: ['./tabela.component.css'],
+    standalone: false
 })
 export class TabelaComponent implements OnInit {
   @Input() data: any[] = [];

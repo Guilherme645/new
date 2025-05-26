@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {  CollectionsService } from 'src/app/services/collections.service';
 
 @Component({
-  selector: 'app-colection-page',
-  templateUrl: './colection-page.component.html',
-  styleUrls: ['./colection-page.component.css']
+    selector: 'app-colection-page',
+    templateUrl: './colection-page.component.html',
+    styleUrls: ['./colection-page.component.css'],
+    standalone: false
 })
 export class ColectionPageComponent implements OnInit {
 
