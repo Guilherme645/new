@@ -19,7 +19,7 @@ import { HeaderColectionComponent } from './components/header-colection/header-c
 import { CreateNewColectionComponent } from './components/create-new-colection/create-new-colection.component';
 import { ColectionPageComponent } from './pages/colection-page/colection-page.component';
 import { PageCreateColectionComponent } from './pages/page-create-colection/page-create-colection.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MenuModule } from 'primeng/menu';
 import { CollectionTreeComponent } from './components/collection-tree/collection-tree.component';
@@ -41,56 +41,46 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SideBarComponent,
-    TabelaComponent,
-    ProjectsPageComponent,
-    ProgressBarComponent,
-    HeaderPageComponent,
-    PageCreateProjectComponent,
-    CreateNewProjectComponent,
-    HeaderColectionComponent,
-    CreateNewColectionComponent,
-    ColectionPageComponent,
-    PageCreateColectionComponent,
-    DropdownComponent,
-  CollectionTreeComponent,
-  LoginComponent,
-  LoginPageComponent,
-  ForgotPasswordComponent,
-  ForgotPasswordPageComponent,
-  NewPasswordComponent,
-  NewPasswordPageComponent,
-  TooltipComponent,
-  OptionDropdownComponent,
-  ModalRemoveComponent,
-  NotificationComponent,
-  NotificationCardComponent,
-  ToastComponent,
-  DashboardPageComponent,
-  
-
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    DropdownModule,
-    FormsModule,
-    RouterOutlet,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MenuModule,
-    FormsModule,
-    SidebarModule,
-    PanelModule,
-    BrowserAnimationsModule,
-    PanelMenuModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        SideBarComponent,
+        TabelaComponent,
+        ProjectsPageComponent,
+        ProgressBarComponent,
+        HeaderPageComponent,
+        PageCreateProjectComponent,
+        CreateNewProjectComponent,
+        HeaderColectionComponent,
+        CreateNewColectionComponent,
+        ColectionPageComponent,
+        PageCreateColectionComponent,
+        DropdownComponent,
+        CollectionTreeComponent,
+        LoginComponent,
+        LoginPageComponent,
+        ForgotPasswordComponent,
+        ForgotPasswordPageComponent,
+        NewPasswordComponent,
+        NewPasswordPageComponent,
+        TooltipComponent,
+        OptionDropdownComponent,
+        ModalRemoveComponent,
+        NotificationComponent,
+        NotificationCardComponent,
+        ToastComponent,
+        DashboardPageComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        DropdownModule,
+        FormsModule,
+        RouterOutlet,
+        ReactiveFormsModule,
+        MenuModule,
+        FormsModule,
+        SidebarModule,
+        PanelModule,
+        BrowserAnimationsModule,
+        PanelMenuModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
