@@ -13,7 +13,8 @@ export class HeaderPageComponent implements OnInit {
 
   searchMode = false;
   searchText = '';
-
+searchFocused = false;
+searchError = false; // se q
   constructor(
     private projectsService: ProjectsService,
   private collectionsService: CollectionsService

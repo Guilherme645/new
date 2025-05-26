@@ -1,10 +1,24 @@
-<div class="img">
-  <img src="/assets/ilustration.png" alt="">
-</div>
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-    <div style="text-align: center; color: var(--Gray-700, #414651); font-size: 32px; font-family: DM Sans; font-weight: 600; line-height: 38.40px; word-wrap: break-word">Crie a primeira coleção</div>
-    <div style="align-self: stretch; text-align: center; color: var(--Gray-700, #414651); font-size: 16px; font-family: Inter; font-weight: 400; line-height: 22.40px; word-wrap: break-word">Clique no botão, e comece a indexar as fontes de dados no Heimdall</div>
-<div data-show-left-icon="false" data-show-right-icon="false" data-state="Default" data-theme="Solid"  [routerLink]="['/tabela-coleções']" style="width: 207px; height: 48px; padding: 12px; background: var(--Primary-Pure, #F9CC13); border-radius: 4px; outline: 0.80px var(--Primary-600, #C7A30F) solid; outline-offset: -0.80px; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
-    <div style="color: var(--Gray-900, #07080A); font-size: 14px; font-family: Inter; font-weight: 500; line-height: 19.60px; word-wrap: break-word">Comece uma nova coleção</div>
-</div>
+<div class="flex flex-col items-center justify-start gap-3 w-full h-full">
+  <!-- Ilustração -->
+  <div class="img mb-4">
+    <img src="/assets/ilustration.png" alt="" />
+  </div>
+
+  <!-- Título -->
+  <div class="text-center text-[32px] font-semibold leading-[38.4px] text-[#414651]">
+    Crie a primeira coleção
+  </div>
+
+  <!-- Texto descritivo -->
+  <div class="text-center text-base leading-[22.4px] text-[#414651] max-w-md">
+    Clique no botão, e comece a indexar as fontes de dados no Heimdall
+  </div>
+
+  <!-- Botão de ação -->
+  <a
+    [routerLink]="['/tabela-coleções']"
+    class="inline-flex items-center justify-center px-5 h-12 mt-3 text-sm font-medium text-[#07080A] bg-[#F9CC13] border border-[#C7A30F] rounded-md shadow-sm cursor-pointer hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition"
+  >
+    Comece uma nova coleção
+  </a>
 </div>
