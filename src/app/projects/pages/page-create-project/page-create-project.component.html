@@ -1,0 +1,27 @@
+<div class="layout-wrapper">
+  <app-side-bar
+    [isExpanded]="isSidebarExpanded"
+    (toggle)="toggleSidebar()"
+    (toggleNotification)="handleToggleNotification()" 
+  ></app-side-bar>
+
+  <div class="main">
+    <div class="create">
+      <app-create-new-project></app-create-new-project>
+    </div>
+  </div>
+
+  <!-- OVERLAY CINZA quando notificações estiverem visíveis -->
+<div 
+  *ngIf="notificationVisible"
+  class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-30"
+></div>
+
+<app-notification
+  *ngIf="notificationVisible"
+  class="fixed top-0 z-40 h-full transition-all duration-300"
+  [style.left]="isSidebarExpanded ? '254px' : '88px'"
+  [style.width]="'420px'"
+  (close)="notificationVisible = false"
+></app-notification>
+</div>

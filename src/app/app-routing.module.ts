@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PageCreateProjectComponent } from './pages/page-create-project/page-create-project.component';
-import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
-import { ColectionPageComponent } from './pages/colection-page/colection-page.component';
-import { PageCreateColectionComponent } from './pages/page-create-colection/page-create-colection.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
-import { NewPasswordPageComponent } from './pages/new-password-page/new-password-page.component';
-import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { PageCreateProjectComponent } from './projects/pages/page-create-project/page-create-project.component';
+import { ProjectsPageComponent } from './projects/pages/projects-page/projects-page.component';
+import { ColectionPageComponent } from './collections/pages/colection-page/colection-page.component';
+import { PageCreateColectionComponent } from './collections/pages/page-create-colection/page-create-colection.component';
+import { LoginPageComponent } from './auth/pages/login-page/login-page.component';
+import { ForgotPasswordPageComponent } from './auth/password/pages/forgot-password-page/forgot-password-page.component';
+import { NewPasswordPageComponent } from './auth/password/pages/new-password-page/new-password-page.component';
+import { DashboardPageComponent } from './dashboard/pages/dashboard-page/dashboard-page.component';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardPageComponent },
 
   { path: 'novo-projeto', component: PageCreateProjectComponent },
-  { path: 'nova-coleção', component: PageCreateColectionComponent },
+  { path: 'nova-colecao', component: PageCreateColectionComponent },
   { path: 'tabela-coleções', component: ColectionPageComponent },
 ];
 @NgModule({

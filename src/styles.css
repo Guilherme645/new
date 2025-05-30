@@ -1,14 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "primeicons/primeicons.css";
-
-
-/* Importação de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@500;600&display=swap');
 
 /* Variáveis de cores */
 :root {
