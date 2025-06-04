@@ -1,0 +1,28 @@
+<ol class="flex items-center whitespace-nowrap">
+  <ng-container *ngFor="let item of itens; let isLast = last">
+    <li class="inline-flex items-center">
+      <a *ngIf="!isLast && item.url"
+         [href]="item.url"
+         class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+        {{ item.rotulo }}
+      </a>
+      <span *ngIf="!isLast && !item.url"
+            class="flex items-center text-sm text-gray-500">
+        {{ item.rotulo }}
+      </span>
+
+      <span *ngIf="isLast"
+            class="text-sm font-semibold text-gray-800 truncate"
+            aria-current="page">
+        {{ item.rotulo }}
+      </span>
+
+      <svg *ngIf="!isLast"
+           class="shrink-0 size-5 text-gray-400 mx-2"
+           width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+           aria-hidden="true">
+        <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
+      </svg>
+    </li>
+  </ng-container>
+</ol>

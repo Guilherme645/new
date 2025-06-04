@@ -12,7 +12,6 @@ export class ColectionPageComponent implements OnInit {
   constructor(private collectionsService: CollectionsService) {}
   collections: any[] = [];
   totalItems: number = 0;
-  totalPages: number = 1;
   currentPage: number = 1;
 showRemoveModal = false;
   exibirModal: boolean = false;
@@ -36,18 +35,13 @@ notificationVisible = false;
           ]
         }));
         this.totalItems = data.totalItems;
-        this.totalPages = data.totalPages;
         this.currentPage = data.currentPage;
       },
       error: (error) => console.error('Erro ao carregar projetos:', error)
     });
   }
 
-  onPageChange(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.loadPage(page);
-    }
-  }
+
 
   openModal(type: 'index' | 'project') {
   this.modalType = type;

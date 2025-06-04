@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 
 // Importações dos seus componentes compartilhados
 import { ToastComponent } from './components/toast/toast.component';
@@ -18,6 +18,11 @@ import { HeaderPageComponent } from './components/header-page/header-page.compon
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CollectionTreeComponent } from '../collections/components/collection-tree/collection-tree.component';
 import { ButtonModule } from 'primeng/button';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { HeaderCreateComponent } from './components/hearder-create/header-create.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { FormCreateComponent } from './components/form-create/form-create.component';
+import { CreateProjectCollectionComponent } from './components/create-project-collection/create-project-collection.component';
 
 
 @NgModule({
@@ -25,11 +30,11 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule, 
+    RouterModule,
     ButtonModule,
-      
+
   ],
-   declarations: [
+    declarations: [
     ToastComponent,
     TooltipComponent,
     TabelaComponent,
@@ -41,13 +46,18 @@ import { ButtonModule } from 'primeng/button';
     ModalRemoveComponent,
     HeaderPageComponent,
     DropdownComponent,
-    CollectionTreeComponent, 
+    CollectionTreeComponent,
+    ListItemComponent,
+    HeaderCreateComponent,
+    BreadcrumbComponent,
+    FormCreateComponent,
+    CreateProjectCollectionComponent
   ],
   exports: [
-    CommonModule,        
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,         
+    RouterModule,
     ToastComponent,
     TooltipComponent,
     TabelaComponent,
@@ -60,8 +70,12 @@ import { ButtonModule } from 'primeng/button';
     HeaderPageComponent,
     DropdownComponent,
     ButtonModule,
-        CollectionTreeComponent 
-          
+    CollectionTreeComponent,
+    ListItemComponent,
+    HeaderCreateComponent,
+    BreadcrumbComponent,
+    FormCreateComponent,
+    CreateProjectCollectionComponent
   ]
 })
 export class SharedModule { }

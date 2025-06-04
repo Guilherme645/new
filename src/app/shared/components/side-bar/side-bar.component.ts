@@ -21,7 +21,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
 activeMenuItem: number | null = null;
   notificationVisible = false;
   private routeSubscription: Subscription | undefined;
-  @Input() isExpanded = true; // 👈 Adicione esta linha
+  @Input() isExpanded = true; 
   @Output() toggle = new EventEmitter<void>();
 @Output() toggleNotification = new EventEmitter<void>();
   readonly menuItems: MenuItem[] = [
@@ -35,8 +35,7 @@ activeMenuItem: number | null = null;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.setActiveMenuItemByRoute(this.router.url); // define ao carregar
-
+    this.setActiveMenuItemByRoute(this.router.url); 
     this.routeSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {

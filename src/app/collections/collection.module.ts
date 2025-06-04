@@ -8,6 +8,7 @@ import { PageCreateColectionComponent } from './pages/page-create-colection/page
 import { CreateNewColectionComponent } from './components/create-new-colection/create-new-colection.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { PageCreateCollectionComponent } from './pages/page-create-collection/page-create-collection.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     ColectionPageComponent,
     PageCreateColectionComponent,
     CreateNewColectionComponent,
+    PageCreateCollectionComponent
   ],
   exports: [
   ]

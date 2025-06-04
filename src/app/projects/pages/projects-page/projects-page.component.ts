@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { Project, ProjectsService } from 'src/app/projects/services/projects.service';
 
 @Component({
-    selector: 'app-projects-page',
-    templateUrl: './projects-page.component.html',
-    styleUrls: ['./projects-page.component.css'],
-    standalone: false
+  selector: 'app-projects-page',
+  templateUrl: './projects-page.component.html',
+  styleUrls: ['./projects-page.component.css'],
+  standalone: false
 })
 export class ProjectsPageComponent implements OnInit {
-  projects: any[] = [];
+  projects: Project[] = []; 
   totalItems: number = 0;
   totalPages: number = 1;
   currentPage: number = 1;
-showRemoveModal = false;
+  showRemoveModal = false;
   exibirModal: boolean = false;
-modalType: 'index' | 'project' = 'index';
-isSidebarExpanded = true;
-notificationVisible = false;
+  modalType: 'index' | 'project' = 'index';
+  isSidebarExpanded = true;
+  notificationVisible = false;
 
   constructor(private projectsService: ProjectsService) {}
 
@@ -29,11 +29,6 @@ notificationVisible = false;
       next: (data) => {
         this.projects = data.projects.map(project => ({
           ...project,
-          expanded: false,
-          subcollections: [
-            { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'complete', progressPercent: 100 },
-            { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pause', progressPercent: 8 }
-          ]
         }));
         this.totalItems = data.totalItems;
         this.totalPages = data.totalPages;
@@ -49,22 +44,20 @@ notificationVisible = false;
     }
   }
 
-openModal(type: 'index' | 'project') {
-  this.modalType = type;
-  this.showRemoveModal = true;
-}
+  openModal(type: 'index' | 'project') {
+    this.modalType = type;
+    this.showRemoveModal = true;
+  }
 
-toggleSidebar(): void {
-  this.isSidebarExpanded = !this.isSidebarExpanded;
-}
+  toggleSidebar(): void {
+    this.isSidebarExpanded = !this.isSidebarExpanded;
+  }
 
+  fecharModal() {
+    this.showRemoveModal = false;
+  }
 
-fecharModal() {
-  this.showRemoveModal = false;
-}
-
-handleToggleNotification() {
-  this.notificationVisible = !this.notificationVisible;
-}
-
+  handleToggleNotification() {
+    this.notificationVisible = !this.notificationVisible;
+  }
 }

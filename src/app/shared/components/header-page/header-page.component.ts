@@ -14,7 +14,7 @@ export class HeaderPageComponent implements OnInit {
   searchMode = false;
   searchText = '';
 searchFocused = false;
-searchError = false; // se q
+searchError = false; 
   constructor(
     private projectsService: ProjectsService,
   private collectionsService: CollectionsService

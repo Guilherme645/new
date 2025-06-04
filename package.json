@@ -21,6 +21,7 @@
     "@floating-ui/dom": "^1.7.0",
     "@preline/dropdown": "^3.0.1",
     "jwt-decode": "^4.0.0",
+    "keycloak-js": "^26.2.0",
     "preline": "^3.0.1",
     "primeicons": "^7.0.0",
     "primeng": "^19.1.3",

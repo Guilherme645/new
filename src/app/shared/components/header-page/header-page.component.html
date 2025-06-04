@@ -20,6 +20,7 @@
         <p-button
           [label]="type === 'project' ? 'Novo projeto' : 'Nova coleção'"
           icon="pi pi-plus"
+           [routerLink]="type === 'project' ? ['/criar-projeto'] : ['/criar-colecao']"
         ></p-button>
       </div>
     </ng-container>

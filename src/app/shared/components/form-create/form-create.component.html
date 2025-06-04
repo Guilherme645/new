@@ -1,0 +1,70 @@
+<form [formGroup]="form" class="flex flex-col items-center gap-12 w-full h-[665px] bg-white shadow-sm rounded-tl-lg mx-auto">
+  <div class="flex flex-col items-start p-10 pt-8 gap-10 w-[1020px] h-[319px] relative isolate">
+    <div class="flex flex-col gap-0.5 w-[940px] h-[46px]">
+      <div class="w-[940px] h-[24px] text-gray-600 text-xl font-semibold leading-[120%] tracking-[-1px]">Informações básicas</div>
+      <div class="w-[940px] h-[20px] text-gray-500 text-sm font-medium leading-[140%]">Insira o nome, a descrição e o URL da coleção</div>
+    </div>
+    <div class="flex flex-row items-start gap-6 w-[940px] h-[201px]">
+      <div class="flex flex-col items-start gap-6 w-[458px] h-[176px] flex-1">
+        <div class="flex flex-col items-start gap-2 w-[458px] h-[76px]">
+          <div class="w-[458px] h-[20px] text-gray-700 text-sm font-medium leading-[140%]">Nome da coleção</div>
+          <div class="flex flex-row items-center p-3 w-[458px] h-[48px] bg-white border-[1.4px] border-gray-200 shadow-xs rounded">
+            <div class="flex flex-row items-center gap-2 w-[434px] h-[20px] flex-1">
+              <input type="text" formControlName="collectionName" class="w-full h-[20px] text-black text-sm font-medium leading-[140%] bg-transparent outline-none" placeholder="Coleção 1">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-start gap-2 w-[458px] h-[76px]">
+          <div class="w-[458px] h-[20px] text-gray-700 text-sm font-medium leading-[140%]">URL ID</div>
+          <div class="flex flex-row items-center p-3 w-[458px] h-[48px] bg-white border-[1.4px] border-gray-200 shadow-xs rounded">
+            <div class="flex flex-row items-center gap-2 w-[434px] h-[20px] flex-1">
+              <input type="text" formControlName="urlId" class="w-full h-[20px] text-black text-sm font-medium leading-[140%] bg-transparent outline-none" placeholder="/URL_ID">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-end gap-2 w-[458px] h-[201px]">
+        <div class="w-[458px] h-[20px] text-gray-700 text-sm font-medium leading-[140%]">Descrição</div>
+        <div class="flex flex-row items-start p-3 w-[458px] h-[148px] bg-white border-[1.4px] border-gray-200 shadow-xs rounded">
+          <div class="flex flex-row items-start gap-2 w-[434px] h-[20px] flex-1">
+            <textarea formControlName="description" class="w-full h-[124px] text-black text-sm font-medium leading-[140%] bg-transparent outline-none resize-none" placeholder="A coleção 1, sumariza os dados..."></textarea>
+          </div>
+        </div>
+        <div class="h-[17px] text-gray-500 text-xs font-normal leading-[140%]">{{ descriptionLength }}/500 caracteres</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-[956px] border-t border-gray-200 mx-auto"></div>
+  <div class="flex flex-col items-start p-10 pt-8 pb-14 gap-10 w-[1020px] h-[250px]">
+    <div class="flex flex-col gap-0.5 w-[940px] h-[46px]">
+      <div class="w-[940px] h-[24px] text-gray-600 text-xl font-semibold leading-[120%] tracking-[-1px]">Sobre a indexação</div>
+      <div class="w-[280px] h-[20px] text-gray-500 text-sm font-medium leading-[140%]">Selecione o tipo de indexação e o modelo</div>
+    </div>
+    <div class="flex flex-row items-start gap-6 w-[940px] h-[76px]">
+      <div class="flex flex-col items-start gap-2 w-[458px] h-[76px]">
+        <div class="w-[458px] h-[20px] text-gray-700 text-sm font-medium leading-[140%]">Tipo de indexação</div>
+        <div class="flex flex-row items-center p-3 w-[458px] h-[48px] bg-white border-[1.4px] border-gray-200 shadow-xs rounded">
+          <div class="flex flex-row items-center gap-2 w-[402px] h-[20px] flex-1">
+            <select formControlName="indexationType" class="w-full h-[20px] text-gray-400 text-sm font-medium leading-[140%] bg-transparent outline-none">
+              <option value="" disabled selected>Selecione</option>
+              <option *ngFor="let type of indexationTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+          
+        </div>
+      </div>
+      <div class="flex flex-col items-start gap-2 w-[458px] h-[76px]">
+        <div class="w-[458px] h-[20px] text-gray-700 text-sm font-medium leading-[140%]">Modelo</div>
+        <div class="flex flex-row items-center p-3 w-[458px] h-[48px] bg-white border-[1.4px] border-gray-200 shadow-xs rounded">
+          <div class="flex flex-row items-center gap-2 w-[402px] h-[20px] flex-1">
+            <select formControlName="model" class="w-full h-[20px] text-gray-400 text-sm font-medium leading-[140%] bg-transparent outline-none">
+              <option value="" disabled selected>Selecione</option>
+              <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+            </select>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

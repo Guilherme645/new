@@ -1,0 +1,48 @@
+export class Collection {
+  name?: string;
+  description?: string;
+  progressState?: 'default' | 'active' | 'complete' | 'error' | 'pause';
+  progressPercent?: number;
+  id?: string;
+  urlId?: string;
+  collectionType?: string;
+  documentType?: string;
+  // usuarioResponsavelCadastro?: User;
+  // usuarioResponsavelUltimaAtualizacao?: User;
+  // usuarioResponsavelExclusao?: User;
+  dataCriacao?: Date;
+  dataUltimaAtualizacao?: Date;
+  dataExclusao?: Date;
+  dataUltimaIndexacao?: Date;
+  dbms?: string;
+  databaseServerUrl?: string;
+  databaseServerPort?: string;
+  databaseName?: string;
+  databaseUsername?: string;
+  databasePassword?: string;
+  databaseQuery?: string;
+  databaseTableName?: string;
+  databaseIdColumn?: string;
+  databaseResultsPerPage?: number;
+  lastIndexedId?: string;
+  filesystemType?: string;
+  filesystemDirectoryPath?: string;
+  filesystemLdapUsername?: string;
+  filesystemLdapPassword?: string;
+  simultaneousThreadsQuantity?: number;
+  schedulingFrequency?: string;
+  schedulingInterval?: string;
+  schedulingStartHour?: string;
+  schedulingStartMinute?: string;
+  active?: boolean;
+  excluida?: boolean;
+  statusIndex?: boolean;
+  collectionIcon?: string;
+  penlinkBaseUrl?: string;
+  penlinkApiVersion?: string;
+  penlinkApiKey?: string;
+
+  expanded?: boolean;
+  subcollections?: Collection[];
+  title?: string;
+}

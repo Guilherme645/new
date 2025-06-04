@@ -3,48 +3,82 @@
     "name": "Legislações",
     "description": "Projeto com o aglomerado dos dados indexados relacionados a legislação,",
     "progressState": "complete",
-    "progressPercent": 100
+    "progressPercent": 100,
+    "subcollections": [
+      {
+        "name": "2025 - Primeiro trimestre",
+        "description": "Coleção com os meses Janeiro, Fevereiro, Março.",
+        "progressState": "complete",
+        "progressPercent": 100
+      },
+      {
+        "name": "2024 - Quarto trimestre",
+        "description": "Coleção com os meses Outubro, Novembro, Dezembro.",
+        "progressState": "pause",
+        "progressPercent": 8
+      }
+    ]
   },
   {
     "name": "Investigação Ministério Público - Lei 30/ resolução nova",
     "description": "Coleções relacionadas a investigação",
     "progressState": "pause",
-    "progressPercent": 14
+    "progressPercent": 14,
+    "subcollections": [
+      {
+        "name": "Processo A - 2023",
+        "description": "Documentos e evidências do processo A.",
+        "progressState": "active",
+        "progressPercent": 60
+      },
+      {
+        "name": "Relatórios Iniciais",
+        "description": "Primeiros relatórios da investigação.",
+        "progressState": "default",
+        "progressPercent": 0
+      }
+    ]
   },
   {
     "name": "Operação Tempestade",
     "description": "Ação emergencial contra grupos armados em regiões de risco elevado.",
     "progressState": "error",
-    "progressPercent": 8
+    "progressPercent": 8,
+    "subcollections": []
   },
   {
     "name": "Operação Linha Cruzada",
     "description": "Combate a organizações criminosas com atuação interestadual.",
     "progressState": "active",
-    "progressPercent": 14
+    "progressPercent": 14,
+    "subcollections": []
   },
   {
     "name": "Dossiê Fantasma",
     "description": "Levantamento de dados sobre crimes não resolvidos com indícios de conexão.",
     "progressState": "default",
-    "progressPercent": 0
+    "progressPercent": 0,
+    "subcollections": []
   },
   {
     "name": "Caso 47-B",
     "description": "Investigação de desaparecimento ligado a possível sequestro em série.",
     "progressState": "complete",
-    "progressPercent": 100
+    "progressPercent": 100,
+    "subcollections": []
   },
   {
     "name": "Projeto Zona Limpa",
     "description": "Ação coordenada para desocupação de territórios dominados por milícias.",
     "progressState": "complete",
-    "progressPercent": 100
+    "progressPercent": 100,
+    "subcollections": []
   },
   {
     "name": "Caso Carbono 12",
     "description": "Investigação forense avançada envolvendo evidências químicas.",
     "progressState": "complete",
-    "progressPercent": 100
+    "progressPercent": 100,
+    "subcollections": []
   }
 ]

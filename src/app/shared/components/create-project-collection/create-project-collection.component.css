@@ -1,0 +1,41 @@
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+@import url('https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.css');
+
+.page-container {
+  height: 100vh;
+  overflow: none;
+}
+
+.page-sidebar {
+  position: fixed;
+  width: 380px;
+  min-height: 100vh;
+  overflow-y: none;
+}
+
+.info-card-wrapper,
+.sidebar-disclaimer,
+.sidebar-tabs-container {
+  flex-shrink: 0;
+}
+
+.main-content-wrapper {
+  margin-left: 380px;
+  height: 100vh;
+  max-width: calc(100vw - 380px);
+  overflow-x: none;
+}
+
+.page-header-container {
+  height: 134px;
+width: 974px;
+}
+
+.page-form-container {
+  overflow-y: none;
+width: 974px;
+}
+
+:host {
+  font-family: 'DM Sans', 'Inter', sans-serif;
+}

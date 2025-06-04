@@ -1,7 +1,7 @@
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importante para as animações do PrimeNG
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 // Módulos PrimeNG
@@ -18,11 +18,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CollectionModule } from './collections/collection.module';
 import { ProjectModule } from './projects/project.module';
-import { AuthModule } from './auth/auth.module'; // Verifique se este módulo existe e está correto
+import { AuthModule } from './auth/auth.module';
 import { RouterOutlet } from '@angular/router';
 
-// ADICIONE ESTA LINHA:
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Faltando!
+// IMPORTE ESTAS LINHAS DIRETAMENTE NO APP.MODULE.TS
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Faltan
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
-    FormsModule,             
-    ReactiveFormsModule,
-    RouterOutlet,            
+    BrowserAnimationsModule,
+    FormsModule, // Mantenha aqui
+    ReactiveFormsModule, // Mantenha aqui
+    RouterOutlet,
 
     // Módulos PrimeNG
     ButtonModule,

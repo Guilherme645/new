@@ -1,23 +1,42 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'; // Importe Input
+import { Collection } from 'src/app/core/models/collection';
+import { CollectionsService } from '../../service/collections.service';
 
 @Component({
-    selector: 'app-collection-tree',
-    templateUrl: './collection-tree.component.html',
-    styleUrls: ['./collection-tree.component.css'],
-    standalone: false
+  selector: 'app-collection-tree',
+  templateUrl: './collection-tree.component.html',
+  styleUrls: ['./collection-tree.component.css'],
+  standalone: false
 })
 export class CollectionTreeComponent implements OnInit {
-  @Input() data: any[] = [];
+  @Input() data: Collection[] = []; 
+  collections: Collection[] = []; 
+  currentPage: number = 1;
+  pageSize: number = 7;
 
-  private defaultData: any[] = [
-    { name: ' 2025 - Primeiro trimestre', description: 'Coleção com os meses Janeiro, Fevereiro...', progressState: 'success', progressPercent: 100 },
-    { name: ' 2024 - Quarto trimestre', description: 'Coleção com os meses Outubro, Novembro...', progressState: 'pending', progressPercent: 0 }
-  ];
+  constructor(private collectionsService: CollectionsService) {}
 
   ngOnInit() {
-    console.log('Dados recebidos no app-collection-tree:', this.data);
-    if (!this.data || this.data.length === 0) {
-      this.data = this.defaultData;
-    }
+    this.loadCollections(); 
+  }
+
+  loadCollections() {
+    this.collectionsService.getPaginatedCollections(this.currentPage, this.pageSize).subscribe({
+      next: (data) => {
+        this.collections = data.collection; 
+      },
+      error: (error) => console.error('Erro ao carregar coleções:', error)
+    });
+  }
+
+  onSearch(searchText: string) {
+    this.collectionsService.setSearchText(searchText);
+    this.currentPage = 1;
+    this.loadCollections();
+  }
+
+  onPageChange(newPage: number) {
+    this.currentPage = newPage;
+    this.loadCollections();
   }
 }

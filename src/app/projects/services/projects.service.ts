@@ -1,23 +1,25 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, combineLatest, map } from 'rxjs';
+import { Collection } from 'src/app/core/models/collection'; 
 
 export interface Project {
   name: string;
   description: string;
   progressState: 'default' | 'active' | 'complete' | 'error' | 'pause';
   progressPercent: number;
+  subcollections?: Collection[]; 
+  expanded?: boolean;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
-  private jsonUrl = 'assets/projects.json';
+  private jsonUrl = 'assets/jsons/projects.json';
   private projectsSubject = new BehaviorSubject<Project[]>([]);
   private searchTextSubject = new BehaviorSubject<string>('');
-  private pageSize = 7; // Number of items per page
-
+  private pageSize = 7;
   constructor(private http: HttpClient) {
     this.loadProjects();
   }

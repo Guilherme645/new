@@ -1,16 +1,18 @@
+// progress-bar.component.ts
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'app-progress-bar',
-    templateUrl: './progress-bar.component.html',
-    styleUrls: ['./progress-bar.component.css'],
-    standalone: false
+  selector: 'app-progress-bar',
+  templateUrl: './progress-bar.component.html',
+  styleUrls: ['./progress-bar.component.css'],
+  standalone: false
 })
 export class ProgressBarComponent implements OnInit {
-  @Input() state: 'default' | 'active' | 'complete' | 'error' | 'pause' = 'default';
+  @Input() state: 'default' | 'active' | 'complete' | 'error' | 'pause' | undefined = 'default';
   @Input() percent: number = 0;
+  @Output() openRemoveCollection = new EventEmitter<void>();
 
-  @Output() openRemoveProject = new EventEmitter<void>(); // 👈 Emitimos para o pai
+  @Output() openRemoveProject = new EventEmitter<void>();
 
   get fillWidth(): string {
     const totalWidth = 148;
@@ -27,7 +29,8 @@ export class ProgressBarComponent implements OnInit {
         return 'vermelho';
       case 'pause':
         return 'laranja';
-      default:
+      case 'default': 
+      case undefined: 
         return '';
     }
   }
@@ -38,7 +41,11 @@ export class ProgressBarComponent implements OnInit {
 
   ngOnInit() {}
 
-  handleTrashClick() {
-    this.openRemoveProject.emit(); // 👈 envia para o pai
+  handleProjectTrashClick() {
+    this.openRemoveProject.emit();
+  }
+
+   handleCollectionTrashClick() {
+    this.openRemoveCollection.emit();
   }
 }

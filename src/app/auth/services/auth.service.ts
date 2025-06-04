@@ -1,90 +1,57 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { environment } from 'src/app/environments/environments';
 import { Router } from '@angular/router';
-import { Observable, firstValueFrom } from 'rxjs';
-import { TokenService } from './token.service';
-import { AlertService } from 'src/app/core/service/alert.service';
+import Keycloak from 'keycloak-js';
+import { environment } from 'src/app/environments/environments';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  private endpointToken = environment.authUrl;
-  private realm = environment.realm;
+  private keycloak: Keycloak;
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private tokenService: TokenService,
-    private alertService: AlertService
-  ) { }
+      private router: Router,
+    ) { this.keycloak = new Keycloak({
+      url: environment.authUrl,
+      realm: environment.realm,
+      clientId: environment.clientId,
+    }); }
 
-  async loginAuth(username: string, password: string) {
+  init(): Promise<boolean> {
+   
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
+    return this.keycloak.init({
+      onLoad: 'login-required',
+      checkLoginIframe: false,
+      pkceMethod: 'S256',
+      flow: 'standard', 
     });
-
-    const body = new HttpParams()
-      .set('username', username)
-      .set('password', password)
-      .set('grant_type', 'password')
-      .set('client_id', 'heimdall-app');
-
-    const post = this.http.post<any>(this.endpointToken + '/realms/' + this.realm + '/protocol/openid-connect/token', body.toString(), { headers });
-    const tokens = await firstValueFrom(post);
-
-    const expirationDate = new Date();
-    expirationDate.setSeconds(expirationDate.getSeconds() + tokens.expires_in);
-    this.saveTokens(tokens.access_token, tokens.refresh_token, expirationDate);
-
-    return tokens;
   }
 
-  saveTokens(accessToken: string, refreshToken: string, expirationDate: Date) {
-    const tokenObject = {
-      accessToken,
-      refreshToken,
-      expiresAt: expirationDate.getTime()
-    };
-
-    localStorage.setItem('refreshToken', tokenObject.refreshToken);
-    localStorage.setItem('accessToken', tokenObject.accessToken);
-    localStorage.setItem('token', JSON.stringify(tokenObject));
+  getkeycloak(): Keycloak {
+    return this.keycloak;
   }
 
-  refreshToken(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-
-    const body = new HttpParams()
-      .set('refresh_token', this.tokenService.getRefreshToken())
-      .set('grant_type', 'refresh_token')
-      .set('client_id', 'heimdall-app');
-
-    return this.http.post<any>(this.endpointToken + '/realms/' + this.realm + '/protocol/openid-connect/token', body.toString(), { headers });
+  getRoles(): string[] {
+    const roles = this.getkeycloak().tokenParsed?.realm_access?.roles;
+    if (roles) {
+      return roles;
+    }
+    return [];
   }
 
   isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-    return !!token;
+    const keycloak = this.getkeycloak?.();
+    if (keycloak?.authenticated) {
+      return true;
+    }
+    return false;
   }
-
+  
   logout() {
-    localStorage.clear();
-    this.navigator("/login");
+    this.getkeycloak().logout();
   }
 
-  sessionLogout() {
-    this.alertService.showMessage('info', 'Aviso', 'Sua sessão expirou, faça o login novamente.');
-    localStorage.clear();
-    this.navigator("/login");
-  }
-
-  navigator(rota: string): void {
-    this.router.navigate([rota]);
-  }
 }
+ 

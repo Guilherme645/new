@@ -8,6 +8,7 @@ import { ForgotPasswordPageComponent } from './auth/password/pages/forgot-passwo
 import { NewPasswordPageComponent } from './auth/password/pages/new-password-page/new-password-page.component';
 import { DashboardPageComponent } from './dashboard/pages/dashboard-page/dashboard-page.component';
 import { Routes, RouterModule } from '@angular/router';
+import { PageCreateCollectionComponent } from './collections/pages/page-create-collection/page-create-collection.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardPageComponent },
 
   { path: 'novo-projeto', component: PageCreateProjectComponent },
+    { path: 'criar-projeto', component: PageCreateCollectionComponent },
+        { path: 'criar-projeto', component: PageCreateCollectionComponent },
   { path: 'nova-colecao', component: PageCreateColectionComponent },
   { path: 'tabela-coleções', component: ColectionPageComponent },
 ];
