@@ -17,11 +17,10 @@
       ></p-button>
 
       <div class="flex items-center h-12 px-4 rounded-[4px] text-sm font-medium text-[#535862] bg-[#F9CC13] border-[0.8px] border-[#C7A30F] hover:bg-yellow-500 transition">
-        <p-button
+       <p-button
           [label]="type === 'project' ? 'Novo projeto' : 'Nova coleção'"
           icon="pi pi-plus"
-           [routerLink]="type === 'project' ? ['/criar-projeto'] : ['/criar-colecao']"
-        ></p-button>
+          [routerLink]="createLink" ></p-button>
       </div>
     </ng-container>
 

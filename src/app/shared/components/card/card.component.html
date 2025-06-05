@@ -1,0 +1,28 @@
+<div class="card flex flex-col items-start pb-6 gap-4 w-[316px] h-[179px] bg-[#07080A] shadow-[0px_1px_3px_rgba(52,54,54,0.1)] rounded-[4px]">
+
+  <div class="container-icon flex items-center px-4 gap-[10px] w-full h-16 self-stretch">
+    <div class="icon flex justify-center items-end px-3 pb-3 w-12 h-16 bg-white/10 border-t-2 border-[#F9CC13] rounded-bl-[500px] rounded-br-[500px]">
+      <div class="folders w-6 h-6 flex justify-center items-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path [attr.d]="iconSvgPath" stroke="#F9CC13" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-container flex flex-col items-start gap-2 w-full h-[75px] self-stretch">
+    <div class="sobre-row flex items-center px-4 w-full">
+      <span class="sobre-text font-inter font-medium text-xs leading-[140%] text-[#717680] flex-grow h-[17px]">{{ labelSobre }}</span>
+    </div>
+
+    <div class="row-info flex flex-col items-start gap-1 w-full">
+      <div class="nome-row flex items-center px-4 w-full">
+        <span class="nome-text font-dmsans font-semibold text-xl leading-[120%] tracking-[-1px] text-[#F5F5F5] flex-grow h-6">{{ itemName }}</span>
+      </div>
+      <div class="url-row flex items-center px-4 w-full">
+        <span class="url-text font-inter font-medium text-sm leading-[140%] text-[#F5F5F5] flex-grow h-[22px]">{{ labelIdentifier }} {{ itemIdentifier }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,12 +1,12 @@
-<div class="page-container flex w-full h-screen overflow-hidden">
-  <div class="page-sidebar fixed w-[380px] h-full flex flex-col items-start p-4 bg-white shadow-md">
+<div class="page-container  bg-gray-100 flex w-full h-screen overflow-hidden">
+  <div class="page-sidebar fixed w-[380px] h-full flex flex-col items-start p-4 bg-white">
     <div class="info-card-wrapper w-full flex-shrink-0">
-      <div class="info-card w-[316px] h-[179px] flex items-center justify-center bg-black rounded-lg">
-        <div class="info-card-icon-area flex items-center justify-center">
-      
-        </div>
-      </div>
-    </div>
+<app-card 
+  [entityType]="currentEntityType" 
+  [itemName]="cardItemName" 
+  [itemIdentifier]="cardItemIdentifier" 
+  [iconSvgPath]="cardIconSvgPath">
+</app-card>    </div>
     <div class="sidebar-disclaimer w-full mt-[48px] flex-shrink-0">
       <span class="disclaimer-text text-gray-600 text-sm font-medium">Configurações da nova coleção:</span>
     </div>
@@ -16,10 +16,9 @@
   </div>
   <div class="main-content-wrapper ml-[380px] h-full flex flex-col overflow-x-hidden">
     <div class="page-header-container flex-shrink-0 mt-6 max-w-[974px] mx-auto">
-      <app-header-create></app-header-create>
+<app-header-create [type]="currentEntityType"></app-header-create>
     </div>
-    <div class="page-form-container flex-grow overflow-y-auto overflow-x-hidden max-w-[974px] mx-auto">
-      <app-form-create></app-form-create>
-    </div>
+<div class="page-form-container flex-grow overflow-y-auto overflow-x-hidden ml-8 w-[0px] mx-auto">
+<app-form-create [entityType]="currentEntityType"></app-form-create>    </div>
   </div>
 </div>

@@ -23,6 +23,7 @@ import { HeaderCreateComponent } from './components/hearder-create/header-create
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FormCreateComponent } from './components/form-create/form-create.component';
 import { CreateProjectCollectionComponent } from './components/create-project-collection/create-project-collection.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { CreateProjectCollectionComponent } from './components/create-project-co
     HeaderCreateComponent,
     BreadcrumbComponent,
     FormCreateComponent,
-    CreateProjectCollectionComponent
+    CreateProjectCollectionComponent,
+    CardComponent
   ],
   exports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { CreateProjectCollectionComponent } from './components/create-project-co
     HeaderCreateComponent,
     BreadcrumbComponent,
     FormCreateComponent,
-    CreateProjectCollectionComponent
+    CreateProjectCollectionComponent,
+    CardComponent
   ]
 })
 export class SharedModule { }

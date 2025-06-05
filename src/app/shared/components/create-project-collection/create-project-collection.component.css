@@ -39,3 +39,11 @@ width: 974px;
 :host {
   font-family: 'DM Sans', 'Inter', sans-serif;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Para Chrome, Safari e Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* Para Internet Explorer e Edge legado */
+  scrollbar-width: none;  /* Para Firefox */
+}

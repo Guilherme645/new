@@ -2,7 +2,9 @@
   <div *ngFor="let tab of tabs; let i = index" 
        [attr.data-state]="tab.state"
        class="w-full h-[79px] flex flex-row items-center px-8 py-5 gap-3 {{tab.activeStyles}} cursor-pointer"
-       (click)="selectTab(i)">
+       (click)="selectTab(i)"
+       (mouseenter)="hoverTab(i)"
+       (mouseleave)="unhoverTab(i)">
     <div class="w-6 h-6 relative">
       <svg *ngIf="i === 0" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"
            class="absolute" 

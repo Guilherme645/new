@@ -1,28 +1,26 @@
-<div class="flex flex-col items-start w-full h-[134px] p-0 max-w-[974px]">
+<div class="flex flex-col  bg-gray-100 items-start w-full h-[134px] p-0 max-w-[974px]">
   <div class="flex flex-row items-center p-0 px-10 gap-3 w-full h-[24px]">
-    <button class="flex flex-row justify-center items-center p-1 gap-1 w-[24px] h-[24px] bg-transparent border-none cursor-pointer" [routerLink]="['/tabela-projetos']">
+    <button class="flex flex-row justify-center items-center p-1 gap-1 w-[24px] h-[24px] bg-transparent border-none cursor-pointer" [routerLink]="[backLink]">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 16L10 12L14 8" stroke="#717680" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
     <div class="flex flex-row items-center gap-3 w-[197px] h-[24px]">
-      <app-breadcrumb></app-breadcrumb>
-    </div>
+      <app-breadcrumb></app-breadcrumb> </div>
   </div>
   <div class="flex flex-row justify-between items-center p-0 px-10 gap-4 w-full h-[62px] mt-2">
     <div class="flex flex-col items-start gap-1 w-[310px] h-[62px]">
       <h1 class="w-[282px] h-[38px] text-[32px] leading-[120%] tracking-[-2px] font-semibold text-[#414651]">
-        {{ type === 'project' ? 'Criar Projetos' : 'Criar Coleções' }}
-      </h1>
+        {{ type === 'project' ? 'Criar Projeto' : 'Criar Coleção' }} </h1>
       <p class="w-[310px] h-[20px] text-sm font-medium leading-[140%] text-[#717680]">
-        Insira as informações da nova coleção abaixo
+        {{ subtitleText }}
       </p>
     </div>
     <div class="flex flex-row items-center gap-3 w-[224px] h-[48px]">
-      <button class="flex flex-row justify-center items-center p-3 gap-2 w-[87px] h-[48px] bg-white text-[#535862] text-[14px] font-semibold leading-[140%] rounded-[4px] border border-white hover:border-gray-300 hover:bg-gray-100 transition-all duration-200">
+      <button class="flex flex-row justify-center items-center p-3 gap-2 w-[87px] h-[48px] bg-gray-100 text-[#535862] text-[14px] font-semibold leading-[140%] rounded-[4px] border-none hover:border-gray-300 hover:bg-gray-100 transition-all duration-200">
         Cancelar
       </button>
-      <button class="flex flex-row justify-center items-center p-3 gap-2 w-[125px] h-[48px] bg-[#FBE071] text-[#00000066] text-[14px] font-medium leading-[140%] rounded-[4px] border-[0.8px] border-[#C7A30F] hover:bg-yellow-500 transition">
+      <button class="flex flex-row justify-center items-center p-3 gap-2 w-[125px] h-[48px] bg-[#FBE071] text-[#00000066] text-[14px] font-medium leading-[140%] rounded-[4px] border-[0.8px]  hover:bg-yellow-500 transition">
         {{ type === 'project' ? 'Salvar projeto' : 'Salvar coleção' }}
       </button>
     </div>

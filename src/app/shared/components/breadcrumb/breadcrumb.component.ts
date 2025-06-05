@@ -32,7 +32,7 @@ export class BreadcrumbComponent implements OnInit {
     // sirva como um fallback.
     if (!this.itens || this.itens.length === 0) {
       this.itens = [
-        { rotulo: 'Coleção', url: '#' }, // Corresponde ao primeiro item do seu HTML
+        { rotulo: 'Coleção', url: '/colecoes' }, // Corresponde ao primeiro item do seu HTML
         { rotulo: 'Criar Coleção' }      // Corresponde ao segundo item (atual) do seu HTML
       ];
     }
